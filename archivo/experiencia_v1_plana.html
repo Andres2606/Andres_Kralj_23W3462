@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Antes de responder · Andrés Kralj</title>
+<meta name="description" content="Experiencia interactiva del trabajo final de Herramientas de Comunicación de Andrés Kralj.">
+<meta name="theme-color" content="#173fbf">
+<style>
+:root{
+  --blue:#173fbf;--blue2:#3158d7;--ink:#1c2230;--muted:#677084;--line:#dfe4ee;
+  --soft:#f5f7fc;--dark:#101936;--white:#fff;--good:#0e7a58;--warn:#a05a00;
+  --serif:Georgia,"Times New Roman",serif;--sans:Inter,Arial,Helvetica,sans-serif
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--sans);line-height:1.6}
+a{color:inherit}
+button{font:inherit}
+.wrap{max-width:1180px;margin:auto;padding:0 24px}
+.top{position:sticky;top:0;z-index:20;background:#ffffffee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:10px}
+.pause-icon{width:17px;height:21px;border-left:5px solid var(--blue);border-right:5px solid var(--blue)}
+.nav{display:flex;gap:18px;flex-wrap:wrap}
+.nav a{font-size:.88rem;text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--blue)}
+.hero{background:var(--blue);color:#fff;padding:68px 0 58px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:end}
+.kicker{text-transform:uppercase;letter-spacing:.13em;font-size:.76rem;font-weight:700;opacity:.9}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0}
+h1{font-size:clamp(4rem,9vw,8rem);letter-spacing:-.05em;margin:22px 0}
+.hero p{font-size:1.2rem;max-width:52ch;margin:0}
+.hero-card{border:1px solid #ffffff55;padding:24px;background:#ffffff0d}
+.hero-card strong{display:block;font-size:1rem;margin-bottom:8px}
+.hero-card p{font-size:.96rem}
+.hero-meta{margin-top:30px;font-size:.82rem;opacity:.78}
+section{padding:78px 0}
+.section-head{display:grid;grid-template-columns:170px 1fr;gap:35px;align-items:start;margin-bottom:40px}
+.number{font-family:var(--serif);font-size:4rem;color:var(--blue);line-height:1}
+.section-head h2{font-size:clamp(2.4rem,5vw,4.7rem);letter-spacing:-.035em}
+.section-head p{max-width:68ch;color:var(--muted);margin:14px 0 0}
+.pause-demo{background:var(--dark);color:#fff}
+.pause-box{display:grid;grid-template-columns:1fr 320px;gap:50px;align-items:center}
+.pause-box h2{font-size:clamp(2.5rem,5vw,5rem);max-width:12ch}
+.pause-box p{max-width:55ch;color:#d8e0f7}
+.pause-control{background:#fff;color:var(--ink);padding:28px;text-align:center}
+.pause-control .counter{font-family:var(--serif);font-size:5rem;color:var(--blue);line-height:1;margin:15px 0}
+.primary{border:0;background:var(--blue);color:#fff;padding:13px 18px;cursor:pointer;font-weight:700}
+.primary:disabled{opacity:.5;cursor:default}
+.small{font-size:.83rem;color:var(--muted)}
+.score-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.score{border:1px solid var(--line);padding:24px;min-height:185px}
+.score b{font:4rem/1 var(--serif);color:var(--blue);display:block}
+.score span{font-weight:700;display:block;margin:13px 0 5px}
+.score small{color:var(--muted)}
+.insight{margin-top:25px;background:var(--soft);padding:24px;border-left:5px solid var(--blue);font-family:var(--serif);font-size:1.4rem;max-width:900px}
+.flow-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.flow{border:1px solid var(--line);padding:28px}
+.flow.current{background:#fff8ef;border-color:#f0d4ad}
+.flow.target{background:#f2f6ff;border-color:#cdd9ff}
+.flow .label{text-transform:uppercase;letter-spacing:.11em;font-size:.72rem;font-weight:700;color:var(--muted);margin-bottom:20px}
+.steps{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+.step{padding:10px 12px;border:1px solid currentColor;font-size:.9rem}
+.arrow{color:var(--muted)}
+.flow p{margin:20px 0 0;color:var(--muted)}
+.pattern-panel{border:1px solid var(--line);padding:26px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 28px}
+.filter{border:1px solid var(--line);background:#fff;padding:9px 12px;cursor:pointer}
+.filter.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.people{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.person{border:1px solid var(--line);padding:16px;transition:.2s;background:#fff}
+.person.dim{opacity:.22}
+.person.hit{border-color:var(--blue);box-shadow:inset 0 0 0 2px #d9e2ff}
+.person strong{display:block;margin-bottom:7px}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:.7rem;border-bottom:1px solid #aab5cf;color:var(--muted)}
+.pattern-summary{margin-top:18px;color:var(--muted);min-height:26px}
+.scenes{display:grid;grid-template-columns:280px 1fr;gap:28px}
+.scene-tabs{display:flex;flex-direction:column;gap:8px}
+.scene-tab{border:1px solid var(--line);background:#fff;text-align:left;padding:13px 14px;cursor:pointer}
+.scene-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.scene-body{border-top:3px solid var(--blue);padding-top:24px}
+.scene-body h3{font-size:2.2rem;margin-bottom:12px}
+.scene-body>p{color:var(--muted);max-width:70ch}
+.scene-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+.scene-col{padding:20px;background:var(--soft)}
+.scene-col b{display:block;color:var(--blue);margin-bottom:8px}
+.question{margin-top:18px;border-left:4px solid var(--blue);padding:14px 18px;font-family:var(--serif);font-size:1.25rem}
+.rasa-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rasa-step{border:1px solid var(--line);background:#fff;text-align:left;padding:20px;cursor:pointer}
+.rasa-step.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.rasa-step b{font:2.7rem/1 var(--serif);display:block}
+.rasa-step span{font-weight:700}
+.rasa-detail{margin-top:14px;background:var(--soft);padding:25px;min-height:135px}
+.rasa-detail h3{font-size:1.8rem;margin-bottom:8px}
+.rasa-detail p{margin:0;max-width:72ch}
+.week{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.week-card{border:1px solid var(--line);padding:26px}
+.week-card h3{font-size:2rem;margin-bottom:15px}
+.checks{padding:0;margin:0;list-style:none}
+.checks li{padding:9px 0 9px 32px;position:relative;border-bottom:1px solid var(--line)}
+.checks li:before{content:"";position:absolute;left:0;top:14px;width:14px;height:14px;border:2px solid var(--blue)}
+.close{background:var(--dark);color:#fff;padding:72px 0}
+.close blockquote{font:italic clamp(2rem,4vw,4rem)/1.3 var(--serif);max-width:24ch;margin:0 0 30px}
+.close p{color:#cbd4ed;max-width:65ch}
+.footer{padding:28px 0;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+.footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:900px){
+  .hero-grid,.pause-box,.section-head,.scenes,.week{grid-template-columns:1fr}
+  .score-grid{grid-template-columns:1fr 1fr}
+  .people{grid-template-columns:1fr 1fr}
+  .rasa-grid{grid-template-columns:1fr 1fr}
+  .scene-tabs{flex-direction:row;flex-wrap:wrap}
+  .scene-tab{flex:1 1 180px}
+  .number{font-size:3rem}
+}
+@media(max-width:600px){
+  .nav{display:none}
+  .hero{padding:45px 0}
+  section{padding:55px 0}
+  .score-grid,.people,.flow-grid,.scene-cols,.rasa-grid{grid-template-columns:1fr}
+  h1{font-size:4.2rem}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><span class="pause-icon" aria-hidden="true"></span>Antes de responder</a>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#hallazgo">Hallazgo</a>
+      <a href="#miradas">10 miradas</a>
+      <a href="#escenas">Escenas</a>
+      <a href="#rasa">RASA</a>
+      <a href="#practica">Práctica</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Herramientas de Comunicación · Trabajo final</div>
+      <h1>Antes de<br>responder</h1>
+      <p><em>Escuchar antes de meterme.</em> Una experiencia breve para mostrar el cambio que quiero trabajar: no adelantarme al otro con una pregunta, una explicación o una solución.</p>
+      <div class="hero-meta">Andrés Kralj · Master in Management + Analytics · Universidad Torcuato Di Tella · 2026</div>
+    </div>
+    <aside class="hero-card">
+      <strong>La idea central</strong>
+      <p>No quiero dejar de ser directo, analítico o resolutivo. Quiero aprender a elegir mejor <em>cuándo</em> esas características suman y cuándo ocupan el espacio que debería tener la otra persona.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="pause-demo">
+  <div class="wrap pause-box">
+    <div>
+      <div class="kicker">Primero, una experiencia</div>
+      <h2>No hagas nada durante cuatro segundos.</h2>
+      <p>Una de las cosas que más me cuesta es bancarme un silencio sin llenarlo. Esta pausa no es un juego: es exactamente la conducta que quiero practicar en una conversación real.</p>
+    </div>
+    <div class="pause-control">
+      <div class="small">Probá la pausa</div>
+      <div class="counter" id="counter">4</div>
+      <button class="primary" id="pauseBtn">Empezar</button>
+      <p class="small" id="pauseMsg">Después de la pausa aparece la parte difícil: decidir si realmente hace falta intervenir.</p>
+    </div>
+  </div>
+</section>
+
+<section id="hallazgo">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="number">01</div>
+      <div>
+        <div class="kicker" style="color:var(--blue)">El hallazgo</div>
+        <h2>No es “escucho bien” o “escucho mal”.</h2>
+        <p>El Test de Escucha Activa mostró una combinación mucho más específica: empatía y participación altas, junto con una dificultad muy marcada para no interrumpir y sostener la atención cuando siento que ya entendí.</p>
+      </div>
+    </div>
+    <div class="score-grid">
+      <article class="score"><b>1/5</b><span>Escuchar sin interrumpir</span><small>Ansiedad por avanzar.</small></article>
+      <article class="score"><b>2/5</b><span>Prestar máxima atención</span><small>La cabeza ya prepara lo siguiente.</small></article>
+      <article class="score"><b>4/5</b><span>Ponerme en el lugar del otro</span><small>Empatía alta.</small></article>
+      <article class="score"><b>4/5</b><span>Participar como oyente</span><small>Me involucro mucho en la conversación.</small></article>
+    </div>
+    <div class="insight">Puedo estar muy metido en una conversación y, justamente por eso, interrumpirla.</div>
+
+    <div style="margin-top:42px" class="flow-grid">
+      <article class="flow current">
+        <div class="label">Patrón automático</div>
+        <div class="steps"><span class="step">Escucho</span><span class="arrow">→</span><span class="step">Anticipo</span><span class="arrow">→</span><span class="step">Aclaro / resuelvo</span><span class="arrow">→</span><span class="step">Insisto</span></div>
+        <p>La intención puede ser ayudar, ahorrar tiempo o evitar un error. El efecto puede ser cortar el relato, presionar o resolver algo que nadie me pidió.</p>
+      </article>
+      <article class="flow target">
+        <div class="label">Orden que quiero practicar</div>
+        <div class="steps"><span class="step">Escucho</span><span class="arrow">→</span><span class="step">Pausa</span><span class="arrow">→</span><span class="step">Resumo</span><span class="arrow">→</span><span class="step">Pregunto</span><span class="arrow">→</span><span class="step">Aporto si hace falta</span></div>
+        <p>El cambio no es volverme menos resolutivo. Es evitar usar el mismo modo resolutivo en todas las conversaciones.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="miradas" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="number">02</div>
+      <div>
+        <div class="kicker" style="color:var(--blue)">Diez miradas</div>
+        <h2>Un mismo rasgo cambia según el vínculo.</h2>
+        <p>Estas diez miradas no buscan decidir si una característica es “buena” o “mala”. Permiten ver cuándo claridad, confianza, velocidad, cantidad de información, resolver o intensidad aparecen como aporte y cuándo empiezan a jugar en contra.</p>
+      </div>
+    </div>
+    <div class="pattern-panel">
+      <strong>Filtrar por patrón</strong>
+      <div class="filters" id="filters"></div>
+      <div class="people" id="people"></div>
+      <div class="pattern-summary" id="patternSummary">Elegí un patrón para ver dónde aparece.</div>
+    </div>
+  </div>
+</section>
+
+<section id="escenas">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="number">03</div>
+      <div>
+        <div class="kicker" style="color:var(--blue)">Tres escenas reales</div>
+        <h2>La misma habilidad puede ayudar o invadir.</h2>
+        <p>En vez de un “juego”, estas escenas muestran tres momentos concretos del trabajo: preguntar para entender, explicar con el contexto justo y cuidar sin convertir la conversación en presión.</p>
+      </div>
+    </div>
+    <div class="scenes">
+      <div class="scene-tabs" id="sceneTabs"></div>
+      <div class="scene-body" id="sceneBody"></div>
+    </div>
+  </div>
+</section>
+
+<section id="rasa" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="number">04</div>
+      <div>
+        <div class="kicker" style="color:var(--blue)">RASA</div>
+        <h2>Cambiar el orden de mi reacción.</h2>
+        <p>De Julian Treasure tomo RASA como una guía simple: Receive, Appreciate, Summarize, Ask. No como una técnica rígida, sino como recordatorio de que preguntar viene después de escuchar y resumir.</p>
+      </div>
+    </div>
+    <div class="rasa-grid" id="rasaButtons"></div>
+    <div class="rasa-detail" id="rasaDetail"></div>
+  </div>
+</section>
+
+<section id="practica">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="number">05</div>
+      <div>
+        <div class="kicker" style="color:var(--blue)">Una semana de práctica</div>
+        <h2>Cómo sabría si estoy cambiando algo.</h2>
+        <p>No me alcanza con “hablar menos”. La prueba es si aparece información que yo no esperaba, si la otra persona desarrolla más lo que piensa y si la conversación termina siendo más profunda o más clara.</p>
+      </div>
+    </div>
+    <div class="week">
+      <article class="week-card">
+        <h3>Una conversación por día</h3>
+        <ul class="checks">
+          <li>No interrumpir para corregir, completar o resolver.</li>
+          <li>Dejar pendiente una duda que pueda esperar.</li>
+          <li>Resumir primero qué entendí.</li>
+          <li>Hacer una pregunta sólo si realmente hace falta.</li>
+          <li>Opinar o proponer una solución después.</li>
+        </ul>
+      </article>
+      <article class="week-card">
+        <h3>Qué observar</h3>
+        <ul class="checks">
+          <li>¿La otra persona contó más?</li>
+          <li>¿Apareció algo que yo no esperaba?</li>
+          <li>¿Una duda se resolvió sola si esperé?</li>
+          <li>¿La conversación fue más clara?</li>
+          <li>¿Fue más profunda o útil?</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <blockquote>“Escuchar no es solamente entender. También es darle al otro el tiempo para terminar de decir lo que necesita decir.”</blockquote>
+    <p>El MBTI me sirvió como herramienta de autoconocimiento, no como etiqueta ni explicación causal. El resultado fue ENTJ, con preferencias especialmente marcadas en Extroversión y Juicio. El aprendizaje que más me importa, sin embargo, apareció al cruzar los tests, las miradas y situaciones concretas: varias de mis fortalezas pueden volverse un problema cuando llegan antes de tiempo.</p>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>Andrés Kralj · Herramientas de Comunicación · UTDT · 2026</span>
+    <span>Recurso trabajado: Julian Treasure · “5 ways to listen better” · TED 2011</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('pauseBtn');
+  var counter=document.getElementById('counter');
+  var msg=document.getElementById('pauseMsg');
+  btn.addEventListener('click',function(){
+    btn.disabled=true; var n=4; counter.textContent=n; msg.textContent='No hace falta llenar el silencio.';
+    var t=setInterval(function(){
+      n--; counter.textContent=n>0?n:'·';
+      if(n<=0){
+        clearInterval(t); btn.disabled=false; btn.textContent='Probar otra vez';
+        msg.textContent='Eso es lo que quiero aprender a tolerar: unos segundos antes de meterme.';
+      }
+    },1000);
+  });
+
+  var tagLabels={all:'Todas',claridad:'Claridad',confianza:'Confianza',velocidad:'Velocidad',contexto:'Cantidad de información',solucion:'Resolver',intensidad:'Intensidad'};
+  var people=[
+    {n:'Micaela',t:['confianza','velocidad','solucion']},
+    {n:'Ceci',t:['claridad','velocidad','intensidad']},
+    {n:'Mi mamá',t:['solucion','intensidad']},
+    {n:'Jesús',t:['claridad','velocidad','intensidad','solucion']},
+    {n:'Salvador',t:['claridad','contexto','solucion']},
+    {n:'Luli',t:['confianza','intensidad']},
+    {n:'Rossi',t:['claridad','confianza','contexto']},
+    {n:'Juan',t:['claridad','intensidad']},
+    {n:'Charlie',t:['confianza','contexto','intensidad']},
+    {n:'Daniel',t:['claridad','velocidad','intensidad']}
+  ];
+  var filterBox=document.getElementById('filters'), peopleBox=document.getElementById('people'), summary=document.getElementById('patternSummary');
+  Object.keys(tagLabels).forEach(function(k){
+    var b=document.createElement('button'); b.className='filter'+(k==='all'?' active':''); b.textContent=tagLabels[k]; b.dataset.k=k; filterBox.appendChild(b);
+  });
+  function renderPeople(key){
+    peopleBox.innerHTML='';
+    var hits=0;
+    people.forEach(function(p){
+      var match=key==='all'||p.t.indexOf(key)>=0; if(match&&key!=='all')hits++;
+      var card=document.createElement('article'); card.className='person'+(key!=='all'?(match?' hit':' dim'):'');
+      var tags=p.t.map(function(x){return '<span class="tag">'+tagLabels[x]+'</span>';}).join('');
+      card.innerHTML='<strong>'+p.n+'</strong><div class="tags">'+tags+'</div>';
+      peopleBox.appendChild(card);
+    });
+    summary.textContent=key==='all'?'Diez vínculos, seis patrones para mirar de otra manera.':tagLabels[key]+' aparece en '+hits+' de las diez miradas de esta lectura.';
+  }
+  renderPeople('all');
+  filterBox.addEventListener('click',function(e){
+    if(!e.target.matches('.filter'))return;
+    document.querySelectorAll('.filter').forEach(function(x){x.classList.remove('active');});
+    e.target.classList.add('active'); renderPeople(e.target.dataset.k);
+  });
+
+  var scenes=[
+    {
+      title:'Preguntar para entender',
+      context:'Estoy escuchando algo y aparece una duda en el medio. Mi impulso es aclararla enseguida para no perder el detalle.',
+      impulse:'Interrumpir con “perdón, ¿qué querés decir con eso?” aunque todavía no sé si ese detalle es central.',
+      target:'Dejar la duda pendiente cuando puedo seguir entendiendo. Esperar a que termine y recién después ver si la pregunta sigue siendo necesaria.',
+      q:'¿Esta aclaración hace falta ahora o puede esperar a que termine de contarme?'
+    },
+    {
+      title:'Explicar con el contexto justo',
+      context:'Con un cliente, explicar bien puede generar confianza. El problema aparece cuando doy más contexto del que la otra persona necesita.',
+      impulse:'Entrar demasiado pronto en todos los detalles para asegurarme de que el otro entienda.',
+      target:'Empezar por qué necesita decidir la otra persona y ajustar la profundidad de la explicación a eso.',
+      q:'¿Qué necesitás saber primero para poder decidir?'
+    },
+    {
+      title:'Cuidar y saber cuándo frenar',
+      context:'Cuando siento que hay una consecuencia importante, especialmente en salud o seguridad, puedo insistir mucho porque siento que estoy cuidando.',
+      impulse:'Seguir argumentando hasta que la otra persona vea la situación como yo.',
+      target:'Distinguir cuándo estoy agregando información nueva de cuándo solamente sigo intentando convencer.',
+      q:'¿Estoy agregando información nueva o sigo intentando que piense como yo?'
+    }
+  ];
+  var tabs=document.getElementById('sceneTabs'), body=document.getElementById('sceneBody');
+  function showScene(i){
+    document.querySelectorAll('.scene-tab').forEach(function(x,j){x.classList.toggle('active',i===j);});
+    var s=scenes[i];
+    body.innerHTML='<h3>'+s.title+'</h3><p>'+s.context+'</p><div class="scene-cols"><div class="scene-col"><b>Lo que me sale</b>'+s.impulse+'</div><div class="scene-col"><b>Lo que quiero probar</b>'+s.target+'</div></div><div class="question">'+s.q+'</div>';
+  }
+  scenes.forEach(function(s,i){var b=document.createElement('button');b.className='scene-tab'+(i===0?' active':'');b.textContent=s.title;b.addEventListener('click',function(){showScene(i)});tabs.appendChild(b);});
+  showScene(0);
+
+  var rasa=[
+    ['R','Receive · Recibir','Escuchar hasta que el otro termine. Si una duda puede esperar, no cortar el relato para resolverla.'],
+    ['A','Appreciate · Apreciar','Mostrar que sigo presente con algo simple. Acompañar sin tomar el control de la conversación.'],
+    ['S','Summarize · Resumir','Devolver qué entendí antes de aportar mi interpretación. Dar espacio para que el otro aclare.'],
+    ['A','Ask · Preguntar','Cuando el otro haya terminado, hacer una pregunta si hace falta. Antes de proponer una solución, ver si la conversación realmente la pide.']
+  ];
+  var rb=document.getElementById('rasaButtons'), rd=document.getElementById('rasaDetail');
+  function showRasa(i){
+    document.querySelectorAll('.rasa-step').forEach(function(x,j){x.classList.toggle('active',i===j);});
+    rd.innerHTML='<h3>'+rasa[i][1]+'</h3><p>'+rasa[i][2]+'</p>';
+  }
+  rasa.forEach(function(s,i){var b=document.createElement('button');b.className='rasa-step'+(i===0?' active':'');b.innerHTML='<b>'+s[0]+'</b><span>'+s[1].split(' · ')[0]+'</span>';b.addEventListener('click',function(){showRasa(i)});rb.appendChild(b);});
+  showRasa(0);
+})();
+</script>
+</body>
+</html>
