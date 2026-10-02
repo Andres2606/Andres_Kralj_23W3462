@@ -8,346 +8,437 @@
 <meta name="theme-color" content="#0d1b3f">
 <style>
 :root{
-  --ink:#111827;--muted:#667085;--paper:#f8f7f3;--white:#fff;--blue:#1947d1;--blue2:#6e8cff;
-  --navy:#0e1734;--sky:#eaf0ff;--green:#0f8a64;--amber:#d97706;--red:#bf3b3b;--line:#dfe3eb;
-  --serif:Georgia,"Times New Roman",serif;--sans:Inter,Arial,Helvetica,sans-serif;--radius:24px;
+  --ink:#131722;--muted:#677084;--paper:#f7f8fb;--white:#fff;--blue:#1a47d4;--blue2:#6f8fff;
+  --navy:#0d1734;--navy2:#15295c;--sky:#edf2ff;--green:#0e8a64;--green2:#dff6ed;
+  --amber:#d67a0a;--amber2:#fff2dd;--red:#bc3c45;--red2:#fff0f1;--line:#dfe4ed;--shadow:0 18px 50px #17305a12;
+  --serif:Georgia,"Times New Roman",serif;--sans:Inter,Arial,Helvetica,sans-serif;--r:26px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;color:var(--ink);font-family:var(--sans);background:var(--paper);line-height:1.6;overflow-x:hidden}
-button,a{font:inherit}
-button{cursor:pointer}
-a{color:inherit}
-img,svg{max-width:100%}
-.progress{position:fixed;left:0;top:0;height:4px;background:linear-gradient(90deg,var(--blue),#7aa2ff);width:0;z-index:100}
-.top{position:fixed;left:0;right:0;top:4px;z-index:90;background:#f8f7f3e6;backdrop-filter:blur(16px);border-bottom:1px solid #d9dde6}
-.topin{max-width:1240px;margin:auto;padding:0 22px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none}
-.pauseicon{width:18px;height:22px;border-left:5px solid var(--blue);border-right:5px solid var(--blue)}
-.nav{display:flex;gap:18px;flex-wrap:wrap}.nav a{text-decoration:none;color:#5e6678;font-size:.88rem}.nav a:hover{color:var(--blue)}
-.hero{min-height:100vh;padding:120px 24px 70px;background:
-radial-gradient(circle at 82% 18%,#5a7cff55 0,transparent 27%),
-radial-gradient(circle at 18% 78%,#7ca3ff33 0,transparent 30%),
-linear-gradient(135deg,#0c1734 0%,#13295c 46%,#1947d1 100%);color:#fff;position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff0c 1px,transparent 1px),linear-gradient(90deg,#ffffff0c 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,#000,transparent)}
-.hero-inner{max-width:1240px;margin:auto;display:grid;grid-template-columns:1.08fr .92fr;gap:50px;align-items:center;position:relative;z-index:2}
-.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:800;opacity:.78}
-h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.04;margin:0}
-h1{font-size:clamp(4.7rem,10vw,9.2rem);letter-spacing:-.055em;margin:20px 0 24px}
-.hero-copy{max-width:58ch;font-size:1.16rem;color:#e8edff}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.cta{border:0;border-radius:999px;padding:13px 18px;font-weight:800}
-.cta.primary{background:#fff;color:#13295c}.cta.ghost{background:transparent;color:#fff;border:1px solid #ffffff55}
-.hero-note{margin-top:26px;font-size:.82rem;color:#cfd9ff}
-.orbit{position:relative;min-height:520px}
-.orbit .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:180px;height:180px;border-radius:50%;background:#fff;color:#173060;display:grid;place-items:center;text-align:center;box-shadow:0 30px 80px #0005;z-index:3}
-.core b{font:3.4rem/1 var(--serif);display:block;color:var(--blue)}.core span{font-size:.84rem;color:#5f6a7f}
-.ring{position:absolute;left:50%;top:50%;border:1px solid #ffffff33;border-radius:50%;transform:translate(-50%,-50%);animation:spin 24s linear infinite}
-.ring.r1{width:330px;height:330px}.ring.r2{width:470px;height:470px;animation-direction:reverse;animation-duration:34s}
-.dot{position:absolute;width:92px;height:92px;border-radius:50%;background:#ffffff18;border:1px solid #ffffff44;display:grid;place-items:center;text-align:center;font-size:.78rem;padding:10px;backdrop-filter:blur(8px);box-shadow:0 15px 40px #0003;animation:float 4.5s ease-in-out infinite}
-.dot strong{display:block;font-family:var(--serif);font-size:1.15rem}
-.dot.d1{left:7%;top:11%}.dot.d2{right:3%;top:18%;animation-delay:-1s}.dot.d3{left:0;bottom:12%;animation-delay:-2s}.dot.d4{right:7%;bottom:7%;animation-delay:-3s}
-@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}@keyframes float{50%{transform:translateY(-9px)}}
-.section{padding:100px 24px;position:relative}.wrap{max-width:1180px;margin:auto}
-.section-head{display:grid;grid-template-columns:180px 1fr;gap:36px;margin-bottom:46px;align-items:start}
-.num{font:5rem/1 var(--serif);color:var(--blue)}.section-head h2{font-size:clamp(2.7rem,5vw,5.2rem);letter-spacing:-.04em;max-width:15ch}
-.section-head p{max-width:72ch;color:var(--muted);margin:15px 0 0;font-size:1.05rem}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease}.reveal.on{opacity:1;transform:none}
-.experience{background:#0f1834;color:#fff;overflow:hidden}.experience .section-head p{color:#cbd5f6}.experience .num{color:#89a5ff}
-.exp-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:35px;align-items:stretch}
-.pause-card{background:linear-gradient(160deg,#1b2a59,#132047);border:1px solid #ffffff1f;border-radius:var(--radius);padding:30px;min-height:420px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-.pause-card:before{content:"";position:absolute;inset:auto -80px -120px auto;width:320px;height:320px;border-radius:50%;background:#2e5bff55;filter:blur(10px)}
-.timer{font:9rem/1 var(--serif);color:#fff;margin:10px 0}.timerline{height:8px;background:#ffffff18;border-radius:999px;overflow:hidden}.timerline i{display:block;height:100%;width:100%;background:#89a5ff;transform-origin:left}
-.pause-card button{align-self:flex-start;border:0;border-radius:999px;padding:12px 18px;font-weight:800;background:#fff;color:#14204a;position:relative;z-index:2}
-.pause-msg{color:#c7d2f5;max-width:34ch}
-.chat-stage{background:#f7f9ff;color:var(--ink);border-radius:var(--radius);padding:28px;position:relative;min-height:420px;overflow:hidden}
-.chat-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}.chat-title strong{font-family:var(--serif);font-size:1.5rem}.mode-switch{display:flex;background:#e8edfb;border-radius:999px;padding:4px}.mode-switch button{border:0;background:transparent;border-radius:999px;padding:8px 11px;font-size:.8rem}.mode-switch button.active{background:#fff;color:var(--blue);box-shadow:0 2px 8px #1d2c5a18}
-.bubble{max-width:78%;padding:14px 16px;border-radius:18px;margin:12px 0;opacity:0;transform:translateY(14px);transition:.45s}.bubble.show{opacity:1;transform:none}.bubble.other{background:#fff;border:1px solid #dfe4f1}.bubble.me{margin-left:auto;background:#1947d1;color:#fff}
-.interrupt{display:inline-block;background:#ffdbdb;color:#912c2c;border-radius:999px;padding:3px 8px;font-size:.72rem;margin-top:7px}.listen{display:inline-block;background:#d8f5e8;color:#0d6a4b;border-radius:999px;padding:3px 8px;font-size:.72rem;margin-top:7px}
-.insight-band{margin-top:25px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.insight-mini{border:1px solid #ffffff24;padding:18px;border-radius:18px;background:#ffffff08}.insight-mini b{display:block;font:2rem/1 var(--serif);color:#9bb1ff}.insight-mini span{font-size:.84rem;color:#d5def7}
-.data-section{background:#fff}
-.data-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.panel{border:1px solid var(--line);border-radius:var(--radius);padding:28px;background:#fff;box-shadow:0 16px 50px #26354d0b}.panel h3{font-size:2rem;margin-bottom:8px}.panel>p{color:var(--muted);margin-top:0}
-.barrow{margin:22px 0}.barhead{display:flex;justify-content:space-between;gap:12px;font-size:.9rem;margin-bottom:8px}.pair{height:13px;background:#edf0f5;border-radius:999px;display:grid;grid-template-columns:1fr 1fr;gap:4px;overflow:hidden}.pair span{height:100%;position:relative;background:#e2e6ef}.pair i{display:block;height:100%;width:0;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}.pair .left i{margin-left:auto;background:var(--blue)}.pair .right i{background:#8794ac}.pairlabels{display:flex;justify-content:space-between;font-size:.76rem;color:var(--muted);margin-top:4px}
-.listen-bars{display:grid;gap:18px;margin-top:24px}.listenrow{display:grid;grid-template-columns:180px 1fr 44px;gap:12px;align-items:center}.listenrow span{font-size:.88rem}.track{height:12px;background:#eef1f6;border-radius:999px;overflow:hidden}.track i{display:block;height:100%;width:0;background:linear-gradient(90deg,#1947d1,#7192ff);border-radius:999px;transition:width 1.1s ease}.listenrow b{font:1.2rem var(--serif);color:var(--blue)}
-.tension{grid-column:1/-1;margin-top:8px;padding:22px;border-radius:18px;background:linear-gradient(90deg,#eef3ff,#f7f9ff);border-left:5px solid var(--blue);font:1.25rem/1.4 var(--serif)}
-.mirror{background:linear-gradient(180deg,#f8f7f3,#eef3ff)}
-.mirror-grid{display:grid;grid-template-columns:1fr 110px 1fr;gap:22px;align-items:center}
-.mirror-col{display:grid;gap:16px}.mirror-card{border-radius:20px;padding:22px;background:#fff;border:1px solid var(--line);min-height:142px;position:relative;overflow:hidden}.mirror-card:after{content:"";position:absolute;inset:auto -30px -45px auto;width:120px;height:120px;border-radius:50%;background:#e9eeff}.mirror-card b{display:block;color:var(--blue);font-size:.76rem;text-transform:uppercase;letter-spacing:.11em;margin-bottom:9px}.mirror-card p{font:1.22rem/1.42 var(--serif);margin:0;position:relative;z-index:2}.mirror-arrow{display:grid;place-items:center;font-size:2.4rem;color:#7f8aa1}
-.network-section{background:#101936;color:#fff}.network-section .section-head p{color:#cbd3e8}.network-section .num{color:#87a2ff}
-.network-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:30px}
-.network-stage{background:radial-gradient(circle at 50% 50%,#1e326c,#0f1834 68%);border:1px solid #ffffff1c;border-radius:var(--radius);padding:18px;min-height:610px;position:relative}
-#networkSvg{width:100%;height:570px;display:block}.edge{stroke:#ffffff1c;stroke-width:1.2;transition:.25s}.edge.hit{stroke:#89a5ff;stroke-width:3}.person-node circle{fill:#172654;stroke:#7895ff;stroke-width:1.2;transition:.25s}.person-node.hit circle{fill:#3159d7;stroke:#fff;stroke-width:2.5}.person-node.dim{opacity:.18}.person-node text{fill:#fff;font-size:13px;font-family:var(--sans);pointer-events:none}
-.core-node{fill:#fff;stroke:#8ba6ff;stroke-width:5}.core-text{fill:#16315f;font-size:14px;font-weight:800}
-.network-side{display:flex;flex-direction:column;gap:15px}.filters{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid #ffffff28;background:#ffffff08;color:#fff;border-radius:999px;padding:8px 11px}.chip.active{background:#fff;color:#173060}.network-info{background:#fff;color:var(--ink);border-radius:var(--radius);padding:24px;min-height:250px}.network-info h3{font-size:2rem}.network-info p{color:var(--muted)}.voice-list{display:grid;gap:7px;margin-top:14px}.voice-pill{padding:8px 10px;background:#f1f4fa;border-radius:10px;font-size:.84rem}
-.class-section{background:#fff}
-.class-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.class-card{border:1px solid var(--line);border-radius:20px;padding:22px;background:#fff;position:relative;overflow:hidden;min-height:230px;transition:.25s}.class-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px #1d31551a}.class-card .source{display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);background:#eef3ff;padding:5px 8px;border-radius:999px;margin-bottom:18px}.class-card h3{font-size:1.65rem;margin-bottom:10px}.class-card p{color:var(--muted);font-size:.92rem}.class-link{margin-top:14px;font-weight:800;color:var(--blue);font-size:.84rem}
-.scenes-section{background:#f0f3fb}
-.scene-shell{display:grid;grid-template-columns:280px 1fr;gap:24px}.scene-tabs{display:flex;flex-direction:column;gap:10px}.scene-tab{border:1px solid var(--line);background:#fff;padding:15px;text-align:left;border-radius:16px}.scene-tab.active{background:#1947d1;color:#fff;border-color:#1947d1}.scene-main{background:#fff;border-radius:var(--radius);padding:30px;min-height:420px;box-shadow:0 18px 60px #2234630e}.scene-main h3{font-size:2.4rem;margin-bottom:10px}.scene-context{color:var(--muted);max-width:66ch}.scene-compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:25px}.scene-box{padding:20px;border-radius:18px}.scene-box.auto{background:#fff3f3;border:1px solid #f3caca}.scene-box.try{background:#eef8f4;border:1px solid #ccebdd}.scene-box b{display:block;margin-bottom:7px}.promptline{margin-top:18px;padding:18px;border-left:5px solid var(--blue);background:#f5f7fc;font:1.25rem/1.4 var(--serif)}
-.rasa-section{background:#0e1734;color:#fff}.rasa-section .section-head p{color:#cad4ef}.rasa-section .num{color:#8ba6ff}
-.rasa-track{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.rasa-step{border:1px solid #ffffff24;background:#ffffff08;color:#fff;border-radius:18px;padding:20px;text-align:left;transition:.25s}.rasa-step.active{background:#fff;color:#173060;transform:translateY(-5px)}.rasa-step b{display:block;font:3.3rem/1 var(--serif)}.rasa-step span{font-weight:800}.rasa-detail{margin-top:16px;border-radius:22px;background:#fff;color:var(--ink);padding:28px;display:grid;grid-template-columns:.9fr 1.1fr;gap:25px}.rasa-detail h3{font-size:2.3rem}.rasa-detail p{color:var(--muted)}.rasa-example{background:#f4f6fb;border-radius:16px;padding:18px}.rasa-example b{display:block;color:var(--blue);margin-bottom:8px}.rasa-example div{font-family:var(--serif);font-size:1.14rem}
-.practice{background:#fff}.practice-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:28px}.donut-card{border-radius:var(--radius);padding:30px;background:linear-gradient(145deg,#eef3ff,#fff);border:1px solid #dfe7ff}.donut-wrap{display:grid;place-items:center;margin:20px 0}.donut{width:220px;height:220px;border-radius:50%;background:conic-gradient(var(--blue) var(--p),#e5eaf4 0);display:grid;place-items:center;transition:.3s}.donut:after{content:"";width:150px;height:150px;background:#fff;border-radius:50%;position:absolute}.donut b{position:relative;z-index:2;font:3.4rem/1 var(--serif);color:var(--blue)}.checks{display:grid;gap:10px}.check{border:1px solid var(--line);border-radius:14px;padding:14px 15px;display:flex;align-items:center;gap:12px;background:#fff}.check input{width:20px;height:20px;accent-color:var(--blue)}.practice-note{color:var(--muted);font-size:.85rem;margin-top:14px}
-.close{background:linear-gradient(135deg,#143064,#0c1734);color:#fff;padding:105px 24px}.close blockquote{font:italic clamp(2.3rem,5vw,5rem)/1.25 var(--serif);max-width:22ch;margin:0}.close p{max-width:68ch;color:#d5def3;margin-top:30px}.course-map{margin-top:42px;display:flex;gap:10px;flex-wrap:wrap}.course-map span{border:1px solid #ffffff35;border-radius:999px;padding:8px 11px;font-size:.8rem;color:#dbe3fb}
-footer{padding:30px 24px;background:#080d1c;color:#b9c2da}.foot{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.84rem}
-@media(max-width:980px){
-.hero-inner,.exp-grid,.data-grid,.network-grid,.rasa-detail,.practice-grid{grid-template-columns:1fr}.orbit{min-height:430px}.section-head{grid-template-columns:1fr}.num{font-size:3.5rem}.network-side{order:-1}.class-grid{grid-template-columns:1fr 1fr}.scene-shell{grid-template-columns:1fr}.scene-tabs{flex-direction:row;flex-wrap:wrap}.scene-tab{flex:1 1 180px}.mirror-grid{grid-template-columns:1fr}.mirror-arrow{transform:rotate(90deg)}}
-@media(max-width:650px){
-.nav{display:none}.hero{padding-top:105px}.orbit{min-height:360px}.ring.r2{width:330px;height:330px}.ring.r1{width:240px;height:240px}.dot{width:78px;height:78px;font-size:.68rem}.core{transform:translate(-50%,-50%) scale(.8)!important}.class-grid,.scene-compare,.rasa-track,.insight-band{grid-template-columns:1fr}.listenrow{grid-template-columns:1fr 44px}.listenrow .track{grid-column:1/-1}.section{padding:72px 20px}.section-head h2{font-size:2.9rem}.timer{font-size:7rem}.mirror-card{min-height:auto}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.62;overflow-x:hidden}
+button,a,input{font:inherit}button{cursor:pointer}a{color:inherit}.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.reading-progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--blue),#8fb0ff);z-index:120}
+.top{position:fixed;top:4px;left:0;right:0;z-index:110;background:#f7f8fbe8;backdrop-filter:blur(18px);border-bottom:1px solid #dfe3eb}
+.topin{height:68px;max-width:1320px;margin:auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:850;white-space:nowrap}.pause-mark{width:18px;height:22px;border-left:5px solid var(--blue);border-right:5px solid var(--blue)}
+.nav{display:flex;align-items:center;gap:15px}.nav a{text-decoration:none;color:#667087;font-size:.84rem}.nav a:hover{color:var(--blue)}
+.top-actions{display:flex;gap:8px}.pill-link{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:9px 13px;text-decoration:none;font-size:.8rem;font-weight:800;border:1px solid var(--line);background:#fff}.pill-link.pdf{background:var(--blue);color:#fff;border-color:var(--blue)}
+.hero{min-height:100vh;padding:118px 24px 76px;color:#fff;background:
+ radial-gradient(circle at 78% 17%,#6b8cff55 0,transparent 25%),
+ radial-gradient(circle at 14% 83%,#52b4ff25 0,transparent 28%),
+ linear-gradient(137deg,#0a122c 0%,#122454 48%,#1a47d4 100%);position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(#000,transparent 90%)}
+.hero-inner{max-width:1240px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center;position:relative;z-index:2}
+.kicker{text-transform:uppercase;letter-spacing:.15em;font-size:.72rem;font-weight:850;opacity:.82}.hero h1,.hero h2,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;margin:0}
+.hero h1{font-size:clamp(4.6rem,9.5vw,9rem);letter-spacing:-.055em;margin:20px 0 12px}.hero h1 em{font-weight:400}.hero-sub{font:italic clamp(1.7rem,3.2vw,2.8rem)/1.2 var(--serif);color:#dfe7ff;margin:0 0 24px}.hero-copy{font-size:1.12rem;max-width:61ch;color:#e2e9ff}.hero-quote{margin-top:24px;padding-left:18px;border-left:3px solid #93abff;font:1.12rem/1.6 var(--serif);max-width:54ch;color:#f4f7ff}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}.hero-btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;border-radius:999px;padding:13px 18px;font-weight:850;border:1px solid #ffffff4a}.hero-btn.primary{background:#fff;color:#163064}.hero-btn.secondary{background:#ffffff0d;color:#fff}.hero-btn:hover{transform:translateY(-1px)}
+.hero-meta{margin-top:25px;font-size:.8rem;color:#c9d4f7}
+.hero-visual{min-height:540px;position:relative;perspective:1200px}.glass-stack{position:absolute;inset:40px 10px 20px 10px;transform-style:preserve-3d}.glass{position:absolute;border:1px solid #ffffff35;background:#ffffff10;backdrop-filter:blur(16px);box-shadow:0 30px 80px #0003;border-radius:32px;padding:22px;transition:.35s;overflow:hidden}.glass:after{content:"";position:absolute;width:160px;height:160px;border-radius:50%;background:#6e8fff30;right:-50px;bottom:-70px}.glass strong{display:block;font:3rem/1 var(--serif);margin-bottom:8px}.glass span{font-size:.82rem;color:#dfe7ff}.g1{width:260px;left:5%;top:6%;transform:rotateY(10deg) rotateX(4deg)}.g2{width:245px;right:2%;top:18%;transform:rotateY(-8deg) rotateX(5deg)}.g3{width:280px;left:13%;bottom:7%;transform:rotateY(8deg) rotateX(-4deg)}.g4{width:220px;right:8%;bottom:0;transform:rotateY(-6deg) rotateX(-4deg)}
+.hero-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:220px;height:220px;border-radius:50%;background:#fff;color:#173064;display:grid;place-items:center;text-align:center;box-shadow:0 35px 80px #0004;z-index:5}.hero-center b{font:3.6rem/1 var(--serif);display:block;color:var(--blue)}.hero-center small{font-size:.82rem;color:#67718a}
+.section{padding:96px 24px}.wrap{max-width:1180px;margin:auto}.head{display:grid;grid-template-columns:180px 1fr;gap:34px;align-items:start;margin-bottom:44px}.num{font:5rem/1 var(--serif);color:var(--blue)}.head h2{font-size:clamp(2.7rem,5vw,5.2rem);letter-spacing:-.04em;max-width:15ch}.head p{max-width:72ch;color:var(--muted);font-size:1.03rem;margin:14px 0 0}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.on{opacity:1;transform:none}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.subtle{color:var(--muted)}.tiny{font-size:.78rem;color:var(--muted)}
+.sim-section{background:#0f1835;color:#fff}.sim-section .num{color:#8ea7ff}.sim-section .head p{color:#c9d2ec}.sim-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:26px}.knob-card{background:linear-gradient(155deg,#1a2b5c,#111d43);border:1px solid #ffffff1f;border-radius:var(--r);padding:28px;min-height:560px;position:relative;overflow:hidden}.knob-card:after{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:#2f5bff35;right:-120px;bottom:-130px}.context-tabs{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0 28px}.context-tabs button{border:1px solid #ffffff2b;background:#ffffff0b;color:#fff;border-radius:999px;padding:8px 11px}.context-tabs button.active{background:#fff;color:#173064}.knob-wrap{display:grid;place-items:center;position:relative;margin:10px 0 22px}.knob{width:260px;height:260px;border-radius:50%;background:conic-gradient(from 225deg,#395385 0 270deg,#1b294d 270deg 360deg);box-shadow:inset 0 0 0 18px #ffffff0a,0 24px 70px #0004;position:relative;touch-action:none;user-select:none;outline:none}.knob:before{content:"";position:absolute;inset:34px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#263b72,#111c3e 70%);box-shadow:inset 0 0 0 1px #ffffff18}.needle{position:absolute;width:6px;height:94px;background:#fff;border-radius:999px;left:50%;top:36px;transform-origin:50% 94px;transform:translateX(-50%) rotate(var(--angle));box-shadow:0 0 18px #fff8}.knob-value{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:3;pointer-events:none}.knob-value b{font:4.5rem/1 var(--serif)}.knob-value span{display:block;font-size:.75rem;color:#bfcaf0}.knob-scale{display:flex;justify-content:space-between;width:300px;max-width:100%;font-size:.72rem;color:#aab7df;margin-top:7px}.knob-state{background:#ffffff0a;border:1px solid #ffffff1c;border-radius:18px;padding:16px 18px;color:#d8e0f7;position:relative;z-index:2}.knob-state strong{color:#fff}.sim-note{font-size:.78rem;color:#aeb9dc;margin-top:16px;position:relative;z-index:2}
+.sim-stage{background:#f8faff;color:var(--ink);border-radius:var(--r);padding:28px;min-height:560px}.sim-top{display:flex;justify-content:space-between;align-items:center;gap:15px}.sim-top h3{font-size:2rem}.sim-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;background:#e9eefc;color:#3150a8;border-radius:999px;padding:6px 9px}.chat{margin:20px 0 24px;min-height:250px}.bubble{max-width:80%;padding:14px 16px;border-radius:18px;margin:11px 0;opacity:0;transform:translateY(12px);transition:.35s}.bubble.show{opacity:1;transform:none}.bubble.other{background:#fff;border:1px solid #e0e5f0}.bubble.me{margin-left:auto;background:var(--blue);color:#fff}.bubble .badge{display:inline-block;margin-top:7px;font-size:.68rem;border-radius:999px;padding:3px 7px;background:#ffffff22}.meters{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.meter{padding:15px;background:#fff;border:1px solid var(--line);border-radius:16px}.meter b{display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:9px}.meter .track{height:9px;border-radius:999px;background:#edf0f6;overflow:hidden}.meter i{display:block;height:100%;width:0;border-radius:999px;transition:width .35s}.meter.space i{background:#3974ff}.meter.speed i{background:#e99a27}.meter.fit i{background:#0c9a6b}.sim-explain{margin-top:14px;padding:15px;border-left:4px solid var(--blue);background:#eef3ff;font:1.08rem/1.45 var(--serif)}
+.life-section{background:linear-gradient(180deg,#f7f8fb,#eef3ff)}.life-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:28px}.life-rail{padding:24px}.life-step{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);cursor:pointer}.life-step:last-child{border-bottom:0}.life-dot{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#eef2fa;color:#657087;font-weight:850}.life-step.active .life-dot{background:var(--blue);color:#fff}.life-step b{display:block}.life-step small{color:var(--muted)}.life-main{padding:30px;min-height:470px;position:relative;overflow:hidden}.life-main:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:#dbe6ff;right:-90px;bottom:-100px}.life-main .eyebrow,.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.7rem;font-weight:850;color:var(--blue)}.life-main h3{font-size:2.65rem;margin:8px 0 15px;max-width:18ch}.life-quote{font:italic 1.45rem/1.5 var(--serif);max-width:30ch;color:#19376f;margin:24px 0;position:relative;z-index:2}.life-copy{max-width:70ch;position:relative;z-index:2}.open-text{border:0;background:#eef3ff;color:var(--blue);border-radius:999px;padding:10px 13px;font-weight:850;position:relative;z-index:3}
+.self-section{background:#fff}.six-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.trait{padding:22px;min-height:230px;position:relative;overflow:hidden}.trait.good{border-top:4px solid var(--green)}.trait.grow{border-top:4px solid var(--amber)}.trait .type{font-size:.68rem;text-transform:uppercase;letter-spacing:.11em;font-weight:850}.trait.good .type{color:var(--green)}.trait.grow .type{color:var(--amber)}.trait h3{font-size:1.65rem;margin:10px 0}.trait p{font-size:.9rem;color:var(--muted)}.trait button{position:absolute;left:22px;bottom:20px;border:0;background:#f0f3f8;color:#31415f;border-radius:999px;padding:8px 10px;font-size:.78rem;font-weight:800}
+.tests{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:18px}.test-card{padding:26px;min-width:0;overflow:hidden}.test-card h3{font-size:2rem}.pairrow{margin:20px 0}.pairhead{display:flex;justify-content:space-between;gap:12px;font-size:.85rem}.pairtrack{display:grid;grid-template-columns:1fr 1fr;gap:5px;height:13px;margin-top:7px}.pairtrack span{background:#edf0f5;border-radius:999px;overflow:hidden}.pairtrack i{display:block;height:100%;width:0;transition:width 1s ease}.pairtrack .l i{margin-left:auto;background:var(--blue)}.pairtrack .r i{background:#8e99ad}.intensity{font-size:.7rem;color:var(--muted);margin-top:4px}.listen-orbits{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}.radial{display:grid;place-items:center;padding:14px;border-radius:20px;background:#f7f9fc}.ringchart{width:128px;height:128px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--blue) var(--p),#e9edf4 0);position:relative}.ringchart:after{content:"";position:absolute;width:86px;height:86px;border-radius:50%;background:#fff}.ringchart b{position:relative;z-index:2;font:2.1rem/1 var(--serif);color:var(--blue)}.radial span{font-size:.78rem;text-align:center;margin-top:9px;color:#556079}.test-tension{grid-column:1/-1;background:#eef3ff;border-left:5px solid var(--blue);padding:18px;border-radius:0 18px 18px 0;font:1.22rem/1.42 var(--serif)}
+.voices-section{background:#0f1835;color:#fff}.voices-section .num{color:#8da7ff}.voices-section .head p{color:#c9d2ec}.voices-grid{display:grid;grid-template-columns:1.22fr .78fr;gap:24px}.network{border:1px solid #ffffff1c;border-radius:var(--r);background:radial-gradient(circle at 50% 50%,#223974,#111a38 67%);padding:16px;min-height:640px;perspective:1200px;overflow:hidden}.network-inner{transform-style:preserve-3d;transition:transform .18s ease}#networkSvg{width:100%;height:600px;display:block}.edge{stroke:#ffffff1c;stroke-width:1.4;transition:.25s}.edge.hit{stroke:#92aaff;stroke-width:3}.person circle{fill:#172654;stroke:#7895ff;stroke-width:1.4;transition:.25s}.person text{fill:#fff;font-size:13px;font-family:var(--sans);pointer-events:none}.person.hit circle{fill:#315bdb;stroke:#fff;stroke-width:2.5}.person.dim{opacity:.16}.corecircle{fill:#fff;stroke:#89a5ff;stroke-width:5}.coretext{fill:#153164;font-size:14px;font-weight:850}
+.voice-side{display:flex;flex-direction:column;gap:13px}.voice-filters{display:flex;flex-wrap:wrap;gap:7px}.voice-filters button{border:1px solid #ffffff2a;background:#ffffff09;color:#fff;border-radius:999px;padding:8px 10px}.voice-filters button.active{background:#fff;color:#173064}.voice-card{background:#fff;color:var(--ink);border-radius:var(--r);padding:24px;min-height:330px}.voice-card .role{font-size:.78rem;color:var(--muted)}.voice-card h3{font-size:2rem;margin:7px 0 12px}.voice-raw{font:1.03rem/1.65 var(--serif);color:#283247}.voice-note{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:.72rem;color:var(--muted)}.voice-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.voice-tags span{font-size:.7rem;border-radius:999px;padding:5px 8px;background:#eef3ff;color:#3152a9}.allvoices{margin-top:18px}.allvoices summary{cursor:pointer;color:#cdd7f4}.allvoices-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px}.allvoice{background:#ffffff0c;border:1px solid #ffffff17;border-radius:16px;padding:14px}.allvoice b{display:block}.allvoice p{font-size:.83rem;color:#d2dbf2;margin-bottom:0}
+.deepdives{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.deep{background:#fff;color:var(--ink);border-radius:20px;padding:21px}.deep h3{font-size:1.7rem;margin-bottom:10px}.deep p{font-size:.9rem;color:#4d586e}.deep .deepquote{font:1.03rem/1.5 var(--serif);color:#24324b}
+.pattern-section{background:#f4f6fb}.pattern-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.pattern-card{padding:26px}.pattern-card h3{font-size:2rem}.pattern-list{display:grid;gap:10px;margin-top:18px}.pattern-row{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:center}.pattern-row b{font-size:.82rem}.patternbar{height:13px;border-radius:999px;background:#e9edf4;overflow:hidden}.patternbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#1947d1,#7897ff);transition:width 1s ease}.compare-quote{margin-top:17px;padding:18px;background:#eef3ff;border-left:5px solid var(--blue);font:1.17rem/1.5 var(--serif)}
+.course-section{background:#fff}.course-shell{display:grid;grid-template-columns:.72fr 1.28fr;gap:22px}.course-menu{display:grid;gap:9px}.course-menu button{border:1px solid var(--line);background:#fff;border-radius:15px;padding:13px 14px;text-align:left}.course-menu button.active{background:var(--blue);color:#fff;border-color:var(--blue)}.course-main{padding:28px;min-height:420px}.course-main h3{font-size:2.4rem;margin:8px 0 14px}.course-source{display:inline-block;background:#eef3ff;color:var(--blue);border-radius:999px;padding:5px 8px;font-size:.7rem;font-weight:850;text-transform:uppercase;letter-spacing:.1em}.course-principle{font:1.28rem/1.48 var(--serif);color:#233354;background:#f5f7fb;border-radius:18px;padding:18px;margin:20px 0}.course-connect{padding:16px;border-left:4px solid var(--blue);background:#eef3ff}.course-secondary{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.course-mini{padding:18px;border-radius:18px;background:#f8f9fc;border:1px solid var(--line)}.course-mini b{display:block;margin-bottom:7px}.course-mini p{font-size:.84rem;color:var(--muted);margin:0}
+.goals-section{background:linear-gradient(180deg,#f7f8fb,#eef3ff)}.domain-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.domain-tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px}.domain-tabs button.active{background:var(--blue);color:#fff;border-color:var(--blue)}.domain-card{padding:28px;min-height:330px}.domain-card h3{font-size:2.4rem;margin:8px 0 14px}.domain-text{font:1.12rem/1.68 var(--serif);max-width:75ch}.domain-foot{margin-top:18px;color:var(--muted);font-size:.82rem}
+.rasa-section{background:#0f1835;color:#fff}.rasa-section .num{color:#8da7ff}.rasa-section .head p{color:#c9d2ec}.ted-card{display:flex;justify-content:space-between;gap:22px;align-items:center;border:1px solid #ffffff20;background:#ffffff0a;border-radius:var(--r);padding:22px;margin-bottom:22px}.ted-card h3{font-size:2rem}.ted-card p{color:#cbd5ef;margin:7px 0 0;max-width:70ch}.ted-link{display:inline-flex;align-items:center;text-decoration:none;background:#fff;color:#173064;border-radius:999px;padding:12px 15px;font-weight:850;white-space:nowrap}.rasa-track{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.rasa-step{border:1px solid #ffffff24;background:#ffffff08;color:#fff;border-radius:18px;padding:20px;text-align:left;transition:.25s}.rasa-step.active{background:#fff;color:#173064;transform:translateY(-5px)}.rasa-step b{display:block;font:3.1rem/1 var(--serif)}.rasa-step span{font-weight:850}.rasa-detail{margin-top:14px;background:#fff;color:var(--ink);border-radius:var(--r);padding:26px;display:grid;grid-template-columns:.9fr 1.1fr;gap:20px}.rasa-detail h3{font-size:2.2rem}.rasa-detail p{color:var(--muted)}.rasa-example{background:#f4f6fb;border-radius:16px;padding:17px}.rasa-example b{display:block;color:var(--blue);margin-bottom:8px}.rasa-example div{font:1.12rem/1.5 var(--serif)}
+.practice-section{background:#fff}.practice-grid{display:grid;grid-template-columns:.76fr 1.24fr;gap:24px}.week-card{padding:26px}.progress-ring-wrap{display:grid;place-items:center;margin:18px 0}.progress-ring{width:220px;height:220px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--blue) var(--p),#e7ebf3 0);position:relative}.progress-ring:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;background:#fff}.progress-ring b{position:relative;z-index:2;font:3.5rem/1 var(--serif);color:var(--blue)}.checks{display:grid;gap:9px}.check{display:flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:14px;padding:13px 14px;background:#fff}.check input{width:20px;height:20px;accent-color:var(--blue)}.outcomes{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:14px}.outcome{padding:13px;border-radius:14px;background:#f5f7fb;font-size:.85rem}
+.reflection{background:linear-gradient(135deg,#153064,#0b1430);color:#fff;padding:100px 24px}.reflection blockquote{font:italic clamp(2.4rem,5vw,5rem)/1.25 var(--serif);max-width:22ch;margin:0}.reflection .refcopy{margin-top:30px;max-width:76ch;color:#d6def3}.reflection details{margin-top:25px;border:1px solid #ffffff27;border-radius:18px;padding:18px;background:#ffffff08}.reflection summary{cursor:pointer;font-weight:850}.reflection details p{color:#e0e6f6}.end-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}.end-actions a{display:inline-flex;text-decoration:none;border-radius:999px;padding:12px 15px;font-weight:850;background:#fff;color:#173064}.end-actions a.ghost{background:transparent;border:1px solid #ffffff3d;color:#fff}
+footer{background:#080d1c;color:#b9c2da;padding:28px 24px}.foot{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.8rem}
+.drawer{position:fixed;inset:0;z-index:200;display:none}.drawer.open{display:block}.drawer-back{position:absolute;inset:0;background:#071028aa;backdrop-filter:blur(4px)}.drawer-panel{position:absolute;right:0;top:0;bottom:0;width:min(760px,95vw);background:#fff;box-shadow:-25px 0 70px #0003;padding:28px;overflow:auto}.drawer-head{display:flex;justify-content:space-between;gap:20px;align-items:start;position:sticky;top:-28px;background:#fff;padding:28px 0 16px;z-index:3;border-bottom:1px solid var(--line)}.drawer-head h2{font-size:2.4rem}.drawer-close{border:0;border-radius:999px;width:40px;height:40px;background:#eef1f6;font-weight:900}.drawer-body{padding:22px 0 80px}.drawer-body p{font:1.05rem/1.78 var(--serif);color:#2a3448}.drawer-tag{display:inline-block;background:#eef3ff;color:var(--blue);border-radius:999px;padding:5px 8px;font-size:.7rem;font-weight:850;text-transform:uppercase;letter-spacing:.09em;margin-bottom:10px}
+@media(max-width:1050px){.nav{display:none}.hero-inner,.sim-grid,.life-grid,.tests,.voices-grid,.pattern-grid,.course-shell,.rasa-detail,.practice-grid{grid-template-columns:1fr}.hero-visual{min-height:460px}.head{grid-template-columns:1fr}.num{font-size:3.7rem}.six-grid,.deepdives,.course-secondary{grid-template-columns:1fr 1fr}.voice-side{order:-1}.network{min-height:560px}#networkSvg{height:520px}.rasa-track{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.top-actions .ted-top{display:none}.topin{padding:0 14px}.pill-link{padding:8px 10px}.hero{padding:105px 18px 55px}.hero-visual{min-height:380px}.g1,.g2,.g3,.g4{width:180px}.hero-center{width:165px;height:165px}.hero-center b{font-size:2.7rem}.section{padding:70px 18px}.head h2{font-size:2.8rem}.six-grid,.deepdives,.course-secondary,.rasa-track,.meters,.outcomes,.allvoices-grid{grid-template-columns:1fr}.listen-orbits{grid-template-columns:1fr 1fr}.knob{width:220px;height:220px}.needle{height:78px;top:32px;transform-origin:50% 78px}.scene-compare{grid-template-columns:1fr}.ted-card{display:block}.ted-link{margin-top:12px}.voice-card{min-height:0}.network{min-height:480px}#networkSvg{height:450px}.life-main h3{font-size:2.15rem}.trait{min-height:215px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<div class="progress" id="progress"></div>
+<div class="reading-progress" id="readingProgress"></div>
 <header class="top">
   <div class="topin">
-    <a class="brand" href="#inicio"><span class="pauseicon"></span>Antes de responder</a>
-    <nav class="nav">
-      <a href="#experiencia">Experiencia</a><a href="#hallazgo">Tests</a><a href="#miradas">10 miradas</a><a href="#curso">Cursada</a><a href="#rasa">RASA</a><a href="#practica">Práctica</a>
-    </nav>
+    <a class="brand" href="#inicio"><span class="pause-mark" aria-hidden="true"></span>Antes de responder</a>
+    <nav class="nav"><a href="#simulador">Simulador</a><a href="#salud">Cambio</a><a href="#autoconocimiento">Autoconocimiento</a><a href="#miradas">10 miradas</a><a href="#cursada">Cursada</a><a href="#rasa">RASA</a></nav>
+    <div class="top-actions"><a class="pill-link ted-top" href="https://www.ted.com/talks/julian_treasure_5_ways_to_listen_better" target="_blank" rel="noopener">TED ↗</a><a class="pill-link pdf" href="Andres_Kralj_23W3462_Trabajo_completo.pdf" download>Descargar PDF</a></div>
   </div>
 </header>
 
+<main>
 <section class="hero" id="inicio">
   <div class="hero-inner">
     <div>
-      <div class="kicker">Trabajo final · Herramientas de Comunicación · UTDT</div>
+      <div class="kicker">Herramientas de Comunicación · Trabajo final</div>
       <h1>Antes de<br>responder</h1>
-      <p class="hero-copy">Mi problema no es no escuchar. Muchas veces estoy tan metido en la conversación que me adelanto: pregunto, aclaro, explico o resuelvo antes de que el otro termine. Este recorrido muestra qué encontré y qué quiero cambiar.</p>
-      <div class="hero-actions"><button class="cta primary" onclick="document.querySelector('#experiencia').scrollIntoView()">Empezar recorrido</button><button class="cta ghost" onclick="document.querySelector('#miradas').scrollIntoView()">Ir a las 10 miradas</button></div>
-      <div class="hero-note">Andrés Kralj · Master in Management + Analytics · Docente Mariela Karp · 2026</div>
+      <div class="hero-sub">Escuchar antes de meterme</div>
+      <p class="hero-copy">No quiero dejar de ser directo, curioso, analítico o resolutivo. Quiero aprender a elegir mejor el momento. Muchas veces estoy tan metido en una conversación que, justamente por eso, la interrumpo.</p>
+      <div class="hero-quote">“Escuchar no es solamente entender. También es darle al otro el tiempo para terminar de decir lo que necesita decir.”</div>
+      <div class="hero-actions">
+        <a class="hero-btn primary" href="Andres_Kralj_23W3462_Trabajo_completo.pdf" download>↓ Descargar el trabajo completo</a>
+        <a class="hero-btn secondary" href="https://www.ted.com/talks/julian_treasure_5_ways_to_listen_better" target="_blank" rel="noopener">▶ Ver charla TED</a>
+        <a class="hero-btn secondary" href="#simulador">Entrar al recorrido ↓</a>
+      </div>
+      <div class="hero-meta">Andrés Kralj · Master in Management + Analytics · Universidad Torcuato Di Tella · Docente Mariela Karp · 2026</div>
     </div>
-    <div class="orbit" aria-hidden="true">
-      <div class="ring r1"></div><div class="ring r2"></div>
-      <div class="core"><div><b>PAUSA</b><span>antes de intervenir</span></div></div>
-      <div class="dot d1"><div><strong>1/5</strong>no interrumpir</div></div>
-      <div class="dot d2"><div><strong>4/5</strong>empatía</div></div>
-      <div class="dot d3"><div><strong>10</strong>miradas</div></div>
-      <div class="dot d4"><div><strong>RASA</strong>nuevo orden</div></div>
+    <div class="hero-visual" id="heroVisual" aria-hidden="true">
+      <div class="glass-stack">
+        <div class="glass g1"><strong>1/5</strong><span>Escuchar sin interrumpir</span></div>
+        <div class="glass g2"><strong>4/5</strong><span>Empatía / ponerme en el lugar del otro</span></div>
+        <div class="glass g3"><strong>10</strong><span>miradas de vínculos distintos</span></div>
+        <div class="glass g4"><strong>RASA</strong><span>Receive · Appreciate · Summarize · Ask</span></div>
+        <div class="hero-center"><div><b>PAUSA</b><small>antes de meterme</small></div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section experience" id="experiencia">
+<section class="section sim-section" id="simulador">
   <div class="wrap">
-    <div class="section-head reveal"><div class="num">00</div><div><div class="kicker">No leer: experimentar</div><h2>Cuatro segundos pueden cambiar una conversación.</h2><p>La práctica más simple del trabajo es también la que más me cuesta: no llenar enseguida el silencio. Probalo y después compará dos versiones de la misma escena.</p></div></div>
-    <div class="exp-grid reveal">
-      <article class="pause-card">
-        <div><div class="kicker">La pausa</div><div class="timer" id="timer">4</div><div class="timerline"><i id="timerbar"></i></div></div>
-        <p class="pause-msg" id="pauseMsg">Mi tendencia es asumir que si el otro se queda callado, la conversación necesita que yo haga algo.</p>
-        <button id="pauseBtn">Empezar 4 segundos</button>
+    <div class="head reveal"><div class="num">00</div><div><div class="kicker">Simulación didáctica</div><h2>¿Cuándo me meto?</h2><p>No existe una regla universal de “callarse más”. El momento de intervenir cambia según el contexto. Arrastrá la perilla y mirá cómo cambia el equilibrio entre espacio, velocidad y adecuación.</p></div></div>
+    <div class="sim-grid reveal">
+      <article class="knob-card">
+        <div class="kicker">Momento de intervención</div>
+        <div class="context-tabs" id="contextTabs"><button class="active" data-context="personal">Personal</button><button data-context="trabajo">Trabajo</button><button data-context="riesgo">Riesgo / urgencia</button></div>
+        <div class="knob-wrap">
+          <div class="knob" id="knob" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" aria-label="Momento de intervención">
+            <div class="needle" id="needle" style="--angle:57deg"></div>
+            <div class="knob-value"><div><b id="knobNumber">72</b><span id="knobLabel">después de escuchar</span></div></div>
+          </div>
+          <div class="knob-scale"><span>me meto enseguida</span><span>dejo terminar</span></div>
+        </div>
+        <div class="knob-state" id="knobState"><strong>Zona buscada.</strong> Primero dejo terminar, después resumo y recién ahí pregunto o aporto.</div>
+        <div class="sim-note">Esta pantalla es una síntesis interactiva del patrón del trabajo, no una conversación real ni un puntaje psicológico.</div>
       </article>
-      <article class="chat-stage">
-        <div class="chat-title"><strong>La misma conversación, dos órdenes</strong><div class="mode-switch"><button class="active" data-mode="auto">Automático</button><button data-mode="pause">Con pausa</button></div></div>
-        <div id="chat"></div>
+      <article class="sim-stage">
+        <div class="sim-top"><h3 id="simTitle">Personal · dejar espacio</h3><span class="sim-label" id="simBadge">simulación</span></div>
+        <div class="chat" id="simChat"></div>
+        <div class="meters">
+          <div class="meter space"><b><span>Espacio del otro</span><span id="spaceVal">72</span></b><div class="track"><i id="spaceBar"></i></div></div>
+          <div class="meter speed"><b><span>Velocidad</span><span id="speedVal">28</span></b><div class="track"><i id="speedBar"></i></div></div>
+          <div class="meter fit"><b><span>Adecuación</span><span id="fitVal">100</span></b><div class="track"><i id="fitBar"></i></div></div>
+        </div>
+        <div class="sim-explain" id="simExplain">En una conversación personal, esperar un poco más puede dejar aparecer información que yo no esperaba.</div>
       </article>
     </div>
-    <div class="insight-band reveal"><div class="insight-mini"><b>Escuchar</b><span>no es sólo entender.</span></div><div class="insight-mini"><b>Esperar</b><span>también es darle espacio al otro.</span></div><div class="insight-mini"><b>Intervenir</b><span>después de saber qué necesita.</span></div></div>
   </div>
 </section>
 
-<section class="section data-section" id="hallazgo">
+<section class="section life-section" id="salud">
   <div class="wrap">
-    <div class="section-head reveal"><div class="num">01</div><div><div class="kicker" style="color:var(--blue)">Autoconocimiento</div><h2>Los tests no me dieron una etiqueta. Me mostraron una tensión.</h2><p>El MBTI sirve como una lente de autoconocimiento, no como explicación causal. El Test de Escucha Activa fue todavía más concreto: empatía y participación altas pueden convivir con una dificultad fuerte para no interrumpir.</p></div></div>
-    <div class="data-grid">
-      <article class="panel reveal">
-        <h3>MBTI · ENTJ</h3><p>Lo más marcado aparece en Extroversión y Juicio. Pensamiento y Sentimiento están mucho más cerca entre sí.</p>
-        <div class="barrow"><div class="barhead"><span><b>E 18</b> · Extroversión</span><span>Introversión · I 3</span></div><div class="pair"><span class="left"><i data-w="86"></i></span><span class="right"><i data-w="14"></i></span></div><div class="pairlabels"><span>preferencia clara</span><span></span></div></div>
-        <div class="barrow"><div class="barhead"><span><b>N 17</b> · Intuición</span><span>Sensación · S 9</span></div><div class="pair"><span class="left"><i data-w="65"></i></span><span class="right"><i data-w="35"></i></span></div><div class="pairlabels"><span>preferencia moderada</span><span></span></div></div>
-        <div class="barrow"><div class="barhead"><span><b>T 13</b> · Pensamiento</span><span>Sentimiento · F 11</span></div><div class="pair"><span class="left"><i data-w="54"></i></span><span class="right"><i data-w="46"></i></span></div><div class="pairlabels"><span>preferencia leve</span><span></span></div></div>
-        <div class="barrow"><div class="barhead"><span><b>J 18</b> · Juicio</span><span>Percepción · P 4</span></div><div class="pair"><span class="left"><i data-w="82"></i></span><span class="right"><i data-w="18"></i></span></div><div class="pairlabels"><span>preferencia clara</span><span></span></div></div>
+    <div class="head reveal"><div class="num">01</div><div><div class="kicker" style="color:var(--blue)">Un cambio que no empezó en clase</div><h2>La salud me cambió la forma de acompañar.</h2><p>Esta parte había quedado demasiado afuera de la web anterior. En el trabajo ocupa un lugar central porque explica por qué hoy la empatía no la vivo sólo como “ser sensible”, sino como algo aprendido desde haber estado del otro lado.</p></div></div>
+    <div class="life-grid reveal">
+      <aside class="card life-rail" id="lifeRail"></aside>
+      <article class="card life-main">
+        <div class="eyebrow" id="lifeEyebrow">Antes</div>
+        <h3 id="lifeTitle"></h3>
+        <div class="life-quote" id="lifeQuote"></div>
+        <div class="life-copy" id="lifeCopy"></div>
+        <button class="open-text" data-essay="health">Leer el desarrollo original completo</button>
       </article>
-      <article class="panel reveal">
-        <h3>Test de Escucha Activa</h3><p>No dice “escuchás mal”. Dice algo más específico: el problema aparece en el momento de dejar terminar.</p>
-        <div class="listen-bars">
-          <div class="listenrow"><span>Escuchar sin interrumpir</span><div class="track"><i data-w="20"></i></div><b>1/5</b></div>
-          <div class="listenrow"><span>Prestar máxima atención</span><div class="track"><i data-w="40"></i></div><b>2/5</b></div>
-          <div class="listenrow"><span>Ponerme en el lugar del otro</span><div class="track"><i data-w="80"></i></div><b>4/5</b></div>
-          <div class="listenrow"><span>Participar como oyente</span><div class="track"><i data-w="80"></i></div><b>4/5</b></div>
-          <div class="tension">Puedo estar muy involucrado en la conversación y, justamente por eso, interrumpirla.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section self-section" id="autoconocimiento">
+  <div class="wrap">
+    <div class="head reveal"><div class="num">02</div><div><div class="kicker" style="color:var(--blue)">Fase I · Autoconocimiento</div><h2>Tres fortalezas y tres cosas que quiero trabajar.</h2><p>Acá no las reduzco a etiquetas. Cada tarjeta abre el desarrollo original con los ejemplos que escribí: clientes, mi mamá, salud, interrupciones, soluciones e insistencia.</p></div></div>
+    <div class="six-grid" id="traitGrid"></div>
+    <div class="tests">
+      <article class="card test-card reveal">
+        <div class="eyebrow">MBTI · Resultado ENTJ</div><h3>Mirar intensidades, no sólo cuatro letras.</h3><p class="subtle">E y J son las preferencias más marcadas. N es moderada. T y F están bastante cerca entre sí. Lo uso como herramienta de autoconocimiento, no como explicación causal.</p>
+        <div class="pairrow"><div class="pairhead"><span><b>E 18</b> · Extroversión</span><span>Introversión · <b>I 3</b></span></div><div class="pairtrack"><span class="l"><i data-w="86"></i></span><span class="r"><i data-w="14"></i></span></div><div class="intensity">Preferencia clara</div></div>
+        <div class="pairrow"><div class="pairhead"><span><b>N 17</b> · Intuición</span><span>Sensación · <b>S 9</b></span></div><div class="pairtrack"><span class="l"><i data-w="65"></i></span><span class="r"><i data-w="35"></i></span></div><div class="intensity">Preferencia moderada</div></div>
+        <div class="pairrow"><div class="pairhead"><span><b>T 13</b> · Pensamiento</span><span>Sentimiento · <b>F 11</b></span></div><div class="pairtrack"><span class="l"><i data-w="54"></i></span><span class="r"><i data-w="46"></i></span></div><div class="intensity">Preferencia leve</div></div>
+        <div class="pairrow"><div class="pairhead"><span><b>J 18</b> · Juicio</span><span>Percepción · <b>P 4</b></span></div><div class="pairtrack"><span class="l"><i data-w="82"></i></span><span class="r"><i data-w="18"></i></span></div><div class="intensity">Preferencia clara</div></div>
+      </article>
+      <article class="card test-card reveal">
+        <div class="eyebrow">Test de Escucha Activa</div><h3>La contradicción que más me sirvió.</h3><p class="subtle">Puedo puntuar alto en empatía y participación y, al mismo tiempo, muy bajo en no interrumpir. Eso hace el problema mucho más específico.</p>
+        <div class="listen-orbits">
+          <div class="radial"><div class="ringchart" style="--p:20%"><b>1/5</b></div><span>Escuchar sin interrumpir</span></div>
+          <div class="radial"><div class="ringchart" style="--p:40%"><b>2/5</b></div><span>Prestar máxima atención</span></div>
+          <div class="radial"><div class="ringchart" style="--p:80%"><b>4/5</b></div><span>Ponerme en el lugar del otro</span></div>
+          <div class="radial"><div class="ringchart" style="--p:80%"><b>4/5</b></div><span>Participar como oyente</span></div>
+          <div class="test-tension">“Más que decir que no sé escuchar, para mí estos resultados muestran algo bastante específico.”</div>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section mirror">
+<section class="section voices-section" id="miradas">
   <div class="wrap">
-    <div class="section-head reveal"><div class="num">02</div><div><div class="kicker" style="color:var(--blue)">Intención ≠ impacto</div><h2>Varias fortalezas se vuelven un problema cuando llegan antes de tiempo.</h2><p>Una de las conclusiones más importantes aparece al comparar cómo vivo yo ciertas conductas y cómo pueden recibirse del otro lado.</p></div></div>
-    <div class="mirror-grid reveal">
-      <div class="mirror-col">
-        <article class="mirror-card"><b>Desde mí</b><p>“Estoy ayudando.”</p></article>
-        <article class="mirror-card"><b>Desde mí</b><p>“Estoy explicando para que se entienda.”</p></article>
-        <article class="mirror-card"><b>Desde mí</b><p>“Estoy aclarando un detalle importante.”</p></article>
-      </div>
-      <div class="mirror-arrow">→</div>
-      <div class="mirror-col">
-        <article class="mirror-card"><b>Puede sentirse como</b><p>presión o solución no pedida.</p></article>
-        <article class="mirror-card"><b>Puede sentirse como</b><p>exceso de información.</p></article>
-        <article class="mirror-card"><b>Puede sentirse como</b><p>interrupción del hilo del otro.</p></article>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section network-section" id="miradas">
-  <div class="wrap">
-    <div class="section-head reveal"><div class="num">03</div><div><div class="kicker">Las diez miradas</div><h2>Un mapa de patrones, no diez opiniones aisladas.</h2><p>Filtrá por tema. El gráfico muestra qué vínculos ponen el foco en cada patrón. La idea es ver qué se repite entre familia, amistades, trabajo, clientes y proveedores.</p></div></div>
-    <div class="network-grid reveal">
-      <div class="network-stage"><svg id="networkSvg" viewBox="0 0 760 570" role="img" aria-label="Red de diez miradas alrededor de Andrés"></svg></div>
-      <aside class="network-side">
-        <div class="filters" id="networkFilters"></div>
-        <div class="network-info" id="networkInfo"><h3>Todos los vínculos</h3><p>Elegí un patrón para ver dónde aparece y qué significa en el trabajo.</p><div class="voice-list" id="voiceList"></div></div>
+    <div class="head reveal"><div class="num">03</div><div><div class="kicker">Fase II · Los juicios</div><h2>Las diez miradas, con el texto del trabajo adentro.</h2><p>La versión anterior mostraba nombres y tags, pero escondía demasiado contenido. Acá podés filtrar patrones y también tocar a cada persona para leer el texto completo que aparece en el PDF.</p></div></div>
+    <div class="voices-grid reveal">
+      <div class="network" id="network"><div class="network-inner" id="networkInner"><svg id="networkSvg" viewBox="0 0 760 600" aria-label="Red de diez miradas alrededor de Andrés"></svg></div></div>
+      <aside class="voice-side">
+        <div class="voice-filters" id="voiceFilters"></div>
+        <div class="voice-card" id="voiceCard"><div class="role">Seleccioná una persona</div><h3>Las diez miradas</h3><div class="voice-raw">El gráfico no reemplaza los textos. Cada nodo abre el desarrollo original de esa mirada.</div><div class="voice-note">En el PDF estas miradas están presentadas como juicios construidos a partir de años de vínculo y situaciones concretas; no como transcripciones literales.</div></div>
       </aside>
     </div>
+    <details class="allvoices reveal"><summary>Ver las diez miradas en lista, sin gráfico</summary><div class="allvoices-grid" id="allVoices"></div></details>
+    <div class="deepdives" id="deepdives"></div>
   </div>
 </section>
 
-<section class="section class-section" id="curso">
+<section class="section pattern-section" id="patrones">
   <div class="wrap">
-    <div class="section-head reveal"><div class="num">04</div><div><div class="kicker" style="color:var(--blue)">La cursada entra al trabajo</div><h2>Las herramientas de clase explican el patrón desde distintos ángulos.</h2><p>No quise que los materiales aparezcan como bibliografía al final. Acá se ve qué idea concreta de la cursada se conecta con qué parte de mi problema.</p></div></div>
-    <div class="class-grid">
-      <article class="class-card reveal"><span class="source">Clase 1</span><h3>Escucha activa</h3><p>Implica alto involucramiento, pero también no invadir el espacio del emisor ni impedirle terminar.</p><div class="class-link">Mi conexión → participación 4/5, interrupción 1/5.</div></article>
-      <article class="class-card reveal"><span class="source">Clase 1</span><h3>Preguntar para comprender</h3><p>Atención + reflexión, curiosidad genuina, preguntas antes de respuestas y mentalidad abierta.</p><div class="class-link">Mi conexión → dejar que la pregunta espere.</div></article>
-      <article class="class-card reveal"><span class="source">Ejercicio de clase</span><h3>3 min · 2 preguntas · resumen</h3><p>Primero escuchar, después sólo dos preguntas y finalmente resumir. Es casi lo contrario de mi impulso natural.</p><div class="class-link">Mi conexión → cambiar el orden.</div></article>
-      <article class="class-card reveal"><span class="source">Clase 2</span><h3>Interpretación vs. descripción</h3><p>Una parte de mi problema aparece cuando convierto rápido un dato incompleto en una interpretación sobre qué necesita el otro.</p><div class="class-link">Mi conexión → “si tengo una solución, debe quererla”.</div></article>
-      <article class="class-card reveal"><span class="source">Clase 2</span><h3>Cierre negativo</h3><p>Cuando falta información, la completamos con creencias y percepciones. Escuchar más reduce la necesidad de completar lo que todavía no fue dicho.</p><div class="class-link">Mi conexión → no anticipar el final.</div></article>
-      <article class="class-card reveal"><span class="source">Artículo · mensajes</span><h3>Consejo prematuro</h3><p>El material identifica como obstáculo ofrecer una solución cuando nadie la pidió y plantea el dilema de saber cuándo hablar y cuándo callar.</p><div class="class-link">Mi conexión → mi inquietud de cambio casi literal.</div></article>
-      <article class="class-card reveal"><span class="source">Red de influencia</span><h3>Mirar vínculos distintos</h3><p>Familia, amistades, equipo, clientes y proveedores muestran caras distintas de la misma forma de comunicar.</p><div class="class-link">Mi conexión → las diez miradas.</div></article>
-      <article class="class-card reveal"><span class="source">MBTI · Clase 2</span><h3>Preferencias, no destino</h3><p>E y J aparecen muy marcadas. Sirven para mirarme, pero no explican ni justifican mi conducta.</p><div class="class-link">Mi conexión → autoconocimiento, no etiqueta.</div></article>
-      <article class="class-card reveal"><span class="source">Melamed · BANI</span><h3>Ansiedad y apresuramiento</h3><p>El artículo trabaja cómo un contexto ansioso puede empujar al apresuramiento. Lo tomo como una lente contextual, no como explicación de mi test.</p><div class="class-link">Mi conexión → tolerar incertidumbre antes de cerrar.</div></article>
+    <div class="head reveal"><div class="num">04</div><div><div class="kicker" style="color:var(--blue)">Lo que se repite</div><h2>No son “cosas buenas” versus “cosas malas”.</h2><p>El patrón más útil del trabajo aparece cuando una fortaleza se usa demasiado pronto, demasiado fuerte o en un contexto que no la necesita.</p></div></div>
+    <div class="pattern-grid">
+      <article class="card pattern-card reveal"><h3>Factores comunes</h3><p class="subtle">Velocidad, cantidad de información, tendencia a resolver e intensidad.</p><div class="pattern-list" id="patternList"></div></article>
+      <article class="card pattern-card reveal"><h3>Mi mirada vs. el efecto posible</h3><p class="subtle">Lo que yo vivo como intención puede sentirse distinto del otro lado.</p>
+        <div class="compare-quote">“Yo puedo vivir mi insistencia como una forma de cuidar. Del otro lado puede sentirse como presión.”</div>
+        <div class="compare-quote">“Puedo vivir una explicación larga como un intento de asegurarme de que el otro entienda. Del otro lado puede sentirse como exceso de información.”</div>
+        <div class="compare-quote">“Puedo hacer una pregunta para no perder un detalle importante y, sin embargo, cortar el hilo de quien estaba hablando.”</div>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="section scenes-section" id="escenas">
+<section class="section course-section" id="cursada">
   <div class="wrap">
-    <div class="section-head reveal"><div class="num">05</div><div><div class="kicker" style="color:var(--blue)">Tres escenas concretas</div><h2>El cambio no es “callarme”. Es elegir mejor cuándo entrar.</h2><p>Elegí una escena. La página separa el impulso automático de la conducta que quiero probar.</p></div></div>
-    <div class="scene-shell reveal"><div class="scene-tabs" id="sceneTabs"></div><div class="scene-main" id="sceneMain"></div></div>
+    <div class="head reveal"><div class="num">05</div><div><div class="kicker" style="color:var(--blue)">La cursada dentro del trabajo</div><h2>Las herramientas no están de adorno: explican el patrón.</h2><p>Elegí una herramienta. A la derecha aparece la idea de la materia y la conexión concreta con mi caso.</p></div></div>
+    <div class="course-shell reveal"><div class="course-menu" id="courseMenu"></div><article class="card course-main" id="courseMain"></article></div>
+    <div class="course-secondary reveal">
+      <article class="course-mini"><b>Mapeá tu red de influencia</b><p>Me sirvió como lógica para mirar vínculos de familia, amistades, trabajo, clientes y proveedores en lugar de quedarme con un solo contexto.</p></article>
+      <article class="course-mini"><b>Feedback ABC / coaching</b><p>El material trabaja conversaciones de feedback y cómo una intención o desempeño puede convivir con impactos relacionales que necesitan ser vistos.</p></article>
+      <article class="course-mini"><b>Melamed · BANI</b><p>Lo uso sólo como lente complementaria: ansiedad, apresuramiento e incertidumbre pueden empujar a querer cerrar antes de tiempo. No explica mis resultados ni los diagnostica.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section goals-section" id="cambio">
+  <div class="wrap">
+    <div class="head reveal"><div class="num">06</div><div><div class="kicker" style="color:var(--blue)">Fase III · Inquietud de cambio</div><h2>“Escuchar antes de meterme” cambia según dónde esté.</h2><p>Familia, amigos y trabajo no necesitan exactamente la misma cosa. Elegí un ámbito para leer el desarrollo que puse en el PDF.</p></div></div>
+    <div class="domain-tabs reveal" id="domainTabs"></div>
+    <article class="card domain-card reveal"><div class="eyebrow" id="domainEyebrow"></div><h3 id="domainTitle"></h3><div class="domain-text" id="domainText"></div><div class="domain-foot">Texto tomado del desarrollo del trabajo final.</div></article>
   </div>
 </section>
 
 <section class="section rasa-section" id="rasa">
   <div class="wrap">
-    <div class="section-head reveal"><div class="num">06</div><div><div class="kicker">Julian Treasure · RASA</div><h2>Una técnica simple para cambiar el orden.</h2><p>Receive, Appreciate, Summarize, Ask. No como receta mecánica, sino como recordatorio de que preguntar viene después de escuchar y resumir.</p></div></div>
+    <div class="head reveal"><div class="num">07</div><div><div class="kicker">Recurso elegido</div><h2>Julian Treasure y RASA: cambiar el orden de mi reacción.</h2><p>La charla elegida no habla solamente de “escuchar más”, sino de prestar atención de otra manera. Eso conecta directo con mi problema: muchas veces escucho mientras ya preparo la pregunta, la solución o el argumento siguiente.</p></div></div>
+    <div class="ted-card reveal"><div><div class="kicker">TED · 2011</div><h3>5 ways to listen better · Julian Treasure</h3><p>RASA = Receive, Appreciate, Summarize, Ask. Para mí lo importante no es memorizar una técnica, sino que preguntar venga después de escuchar y resumir.</p></div><a class="ted-link" href="https://www.ted.com/talks/julian_treasure_5_ways_to_listen_better" target="_blank" rel="noopener">Ver charla TED ↗</a></div>
     <div class="rasa-track reveal" id="rasaButtons"></div>
-    <div class="rasa-detail reveal"><div><h3 id="rasaTitle"></h3><p id="rasaText"></p></div><div class="rasa-example"><b>Cómo se vería en una conversación</b><div id="rasaExample"></div></div></div>
+    <div class="rasa-detail reveal"><div><div class="eyebrow">Paso activo</div><h3 id="rasaTitle"></h3><p id="rasaText"></p></div><div class="rasa-example"><b>Cómo lo traduzco a mi caso</b><div id="rasaExample"></div></div></div>
   </div>
 </section>
 
-<section class="section practice" id="practica">
+<section class="section practice-section" id="practica">
   <div class="wrap">
-    <div class="section-head reveal"><div class="num">07</div><div><div class="kicker" style="color:var(--blue)">Experimento de una semana</div><h2>El indicador no es cuánto hablé. Es qué apareció porque esperé.</h2><p>Marcá los cinco pasos. El círculo cambia mientras avanzás. La lista representa la práctica concreta que quiero hacer una vez por día durante una semana.</p></div></div>
+    <div class="head reveal"><div class="num">08</div><div><div class="kicker" style="color:var(--blue)">Una semana de práctica</div><h2>El indicador no es “hablé menos”.</h2><p>Quiero ver si la otra persona contó más, si apareció algo que yo no esperaba y si la conversación terminó siendo más profunda o más clara.</p></div></div>
     <div class="practice-grid reveal">
-      <article class="donut-card"><h3>Progreso de la conversación</h3><div class="donut-wrap"><div class="donut" id="donut" style="--p:0deg"><b id="doneCount">0/5</b></div></div><p class="practice-note">Esto no guarda datos fuera del navegador. Es sólo una visualización de la secuencia.</p></article>
-      <article><div class="checks" id="checks"></div><div class="tension" style="margin-top:16px">Éxito = la otra persona contó más, apareció algo inesperado o la conversación terminó siendo más clara, profunda o útil.</div></article>
+      <article class="card week-card"><div class="eyebrow">Secuencia</div><h3>Una conversación por día</h3><div class="progress-ring-wrap"><div class="progress-ring" id="progressRing" style="--p:0deg"><b id="progressCount">0/5</b></div></div><div class="tiny">Marcá los pasos. No se guarda ningún dato fuera de esta página.</div></article>
+      <article><div class="checks" id="checks"></div><div class="outcomes"><div class="outcome">¿La otra persona contó más?</div><div class="outcome">¿Apareció algo que yo no esperaba?</div><div class="outcome">¿Una duda se resolvió sola si esperé?</div><div class="outcome">¿La conversación fue más clara?</div><div class="outcome">¿Fue más profunda o útil?</div></div></article>
     </div>
   </div>
 </section>
 
-<section class="close">
+<section class="reflection" id="cierre">
   <div class="wrap reveal">
-    <blockquote>“Escuchar no es solamente entender. También es darle al otro el tiempo para terminar de decir lo que necesita decir.”</blockquote>
-    <p>Mi desafío no pasa por dejar de ser directo, curioso, analítico o resolutivo. Pasa por reconocer cuándo esas fortalezas suman y cuándo empiezan a ocupar el espacio que debería tener la otra persona.</p>
-    <div class="course-map"><span>Escucha activa</span><span>Preguntar para comprender</span><span>MBTI</span><span>Interpretación vs. descripción</span><span>Cierre negativo</span><span>Red de influencia</span><span>RASA</span><span>Consejo prematuro</span></div>
+    <blockquote>“Tener empatía no alcanza si no le doy al otro el espacio para usar su propia voz.”</blockquote>
+    <div class="refcopy"><p>Lo que más me sorprendió fue darme cuenta de que durante mucho tiempo yo pensaba que escuchar bien era prestar mucha atención, meterme en lo que me estaban contando y demostrar que estaba siguiendo. Por eso hacía preguntas, pedía aclaraciones y trataba de entender cada detalle. El problema es que muchas veces, justamente por querer mostrar que estaba escuchando, terminaba interrumpiendo.</p><p>No necesito dejar de ser directo, curioso, resolutivo ni de hacer preguntas. Necesito aprender a elegir mejor el momento. Escuchar hasta el final no significa quedarme pintado.</p></div>
+    <details><summary>Leer la reflexión final original completa</summary><div id="reflectionFull"></div></details>
+    <div class="end-actions"><a href="Andres_Kralj_23W3462_Trabajo_completo.pdf" download>↓ Descargar PDF completo</a><a class="ghost" href="https://www.ted.com/talks/julian_treasure_5_ways_to_listen_better" target="_blank" rel="noopener">Ver charla TED ↗</a></div>
   </div>
 </section>
+</main>
 
-<footer><div class="foot"><span>Andrés Kralj · Herramientas de Comunicación · UTDT · 2026</span><span>Trabajo final de integración</span></div></footer>
+<footer><div class="foot"><span>Andrés Kralj · Herramientas de Comunicación · Universidad Torcuato Di Tella · 2026</span><span>La web complementa el PDF; el PDF conserva el desarrollo completo.</span></div></footer>
+
+<div class="drawer" id="drawer" aria-hidden="true"><div class="drawer-back" data-close="1"></div><aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle"><div class="drawer-head"><div><span class="drawer-tag" id="drawerTag"></span><h2 id="drawerTitle"></h2></div><button class="drawer-close" data-close="1" aria-label="Cerrar">×</button></div><div class="drawer-body" id="drawerBody"></div></aside></div>
 
 <script>
 (function(){
-  var progress=document.getElementById('progress');
-  function updateProgress(){var h=document.documentElement.scrollHeight-innerHeight;progress.style.width=(h?scrollY/h*100:0)+'%'}
-  addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+  const PDF='Andres_Kralj_23W3462_Trabajo_completo.pdf';
+  const TED='https://www.ted.com/talks/julian_treasure_5_ways_to_listen_better';
 
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');e.target.querySelectorAll('[data-w]').forEach(function(el){el.style.width=el.dataset.w+'%'});}})},{threshold:.16});
-  document.querySelectorAll('.reveal,.panel').forEach(function(x){obs.observe(x)});
-
-  var pauseBtn=document.getElementById('pauseBtn'),timer=document.getElementById('timer'),timerbar=document.getElementById('timerbar'),pauseMsg=document.getElementById('pauseMsg');
-  pauseBtn.addEventListener('click',function(){
-    pauseBtn.disabled=true;pauseBtn.textContent='Esperá…';var n=4;timer.textContent=n;timerbar.style.transition='none';timerbar.style.transform='scaleX(1)';
-    requestAnimationFrame(function(){requestAnimationFrame(function(){timerbar.style.transition='transform 4s linear';timerbar.style.transform='scaleX(0)'})});
-    var iv=setInterval(function(){n--;timer.textContent=n>0?n:'·';if(n<=0){clearInterval(iv);pauseBtn.disabled=false;pauseBtn.textContent='Probar otra vez';pauseMsg.textContent='La pausa no hizo nada espectacular. Ese es el punto: permitió que no hiciera algo antes de tiempo.';}},1000);
-  });
-
-  var chats={
-    auto:[
-      {who:'other',t:'Estoy medio trabado con una decisión del trabajo y no sé bien por dónde encararla…'},
-      {who:'me',t:'¿Pero qué opciones tenés? Porque si son dos, yo primero haría una matriz y…',badge:'Interrupción / solución'},
-      {who:'other',t:'Sí, pero pará, dejame terminar. Lo que me pasa en realidad es otra cosa.'}
-    ],
-    pause:[
-      {who:'other',t:'Estoy medio trabado con una decisión del trabajo y no sé bien por dónde encararla…'},
-      {who:'me',t:'Claro. Te sigo.',badge:'Espacio'},
-      {who:'other',t:'Lo que me preocupa no es elegir mal. Es que ninguna de las dos opciones me entusiasma y no sé por qué.'},
-      {who:'me',t:'Entonces no es solamente una decisión entre A y B. ¿Qué sentís que te está faltando?',badge:'Pregunta después de escuchar'}
-    ]
+  const essays={
+    clarity:{tag:'Fortaleza',title:'Claridad para explicar y lograr que el otro entienda',paras:[
+      'Una de las cosas que creo que hago bien cuando me comunico es explicar. Me importa bastante que la otra persona entienda lo que estoy tratando de decir y, si veo que no tiene todo el contexto, intento buscar otra forma de explicarlo. Esto me pasa mucho en el trabajo con clientes. No solamente cuando tengo que explicar un problema técnico, sino también cuando necesito contar qué necesitamos como empresa, qué podemos hacer y por qué hacemos las cosas de determinada manera. Eso también apareció cuando armamos la página de Mexell, porque había que encontrar una forma clara de contar quiénes somos y qué hacemos.',
+      'Creo que esta necesidad de que el otro entienda también puede jugarme en contra. A veces puedo explicar de más o asumir que la otra persona sabe menos de lo que realmente sabe. Por eso no lo veo como una virtud aislada, sino como una forma de comunicar que funciona muy bien cuando logro adaptarla a quién tengo enfrente.',
+      'Un ejemplo concreto me pasó con un cliente que necesitaba resolver un repuesto y no tenía claro si podía fabricarse localmente ni qué implicaba hacerlo. La persona era de Compras, así que en lugar de entrar directamente en el detalle técnico traté de explicarle el proceso completo, desde la materia prima hasta las etapas de ingeniería y fabricación, cómo armamos los tiempos y el Gantt, qué información podemos darle durante el proceso y qué cosas sí o no podemos resolver. También hablamos de cómo podíamos ayudar con los plazos y con algunas decisiones sobre la pieza que podían bajar el costo sin comprometer el resultado. Para mí lo importante fue que no quedara simplemente con un precio, sino que entendiera qué había detrás de ese precio, qué podía esperar de nosotros y en qué puntos realmente podíamos agregar valor. Al final también le dejé claro que podía consultarme cualquier duda que apareciera después. Ese tipo de situaciones es donde más noto que explicar bien genera confianza y facilita mucho la relación con el cliente.'
+    ]},
+    adapt:{tag:'Fortaleza',title:'Adaptarme mejor a la otra persona',paras:[
+      'Otra fortaleza que creo que fui desarrollando con el tiempo es entender que no todas las personas procesan una conversación de la misma manera y que insistir con mi lógica no siempre mejora nada. Esto me costó bastante más en lo personal que en lo laboral.',
+      'Con mi mamá, por ejemplo, me pasó muchas veces que yo quería hablar sobre algo que había hecho mi hermana y lo planteaba desde un lugar muy racional. Qué había pasado, por qué me parecía que estaba mal y qué conclusión sacaba de eso. Mi mamá, en cambio, podía empezar a defenderla desde un lugar mucho más emocional. Antes yo me enganchaba e intentaba seguir demostrando mi punto, como si el problema fuera solamente que todavía no había explicado suficientemente bien el razonamiento.',
+      'Con el tiempo entendí que ahí estábamos hablando, en cierto sentido, dos idiomas distintos. Yo estaba intentando llegar a una conclusión lógica y ella estaba reaccionando desde otro lugar, donde también entraban el vínculo, la protección y lo que ese tema le generaba. Hoy trato de reconocer eso antes. Hay temas que directamente no llevo a fondo porque sé que no van a producir una conversación útil, y si los menciono intento hacerlo como una opinión mía y no como algo que necesito que la otra persona acepte. Para mí eso fue un cambio importante. Entendí que comunicar bien no siempre significa explicar mejor o insistir hasta que el otro entienda mi punto. También es saber cuándo adaptar la conversación y cuándo dejar de empujarla.'
+    ]},
+    health:{tag:'Fortaleza / experiencia personal',title:'Empatía desde haber atravesado una situación límite',paras:[
+      'La tercera fortaleza que más reconozco en mí hoy tiene que ver con la empatía, pero no siento que venga solamente de ser una persona sensible. En gran parte la desarrollé a partir de lo que me tocó atravesar con mi salud. Hubo un momento en el que un médico me planteó un pronóstico de tres meses de vida. Después mi caso fue revisado por otros médicos en un ateneo y, tras aproximadamente un mes, esa primera evaluación cambió y apareció una posibilidad distinta. Ese mes me dejó una marca muy grande.',
+      'Hasta ese momento yo podía pensar la muerte de una manera bastante abstracta, como cualquiera puede pensar que algún día puede salir a la calle y no volver. Esto fue diferente. Por primera vez sentí de manera concreta que podía dejar de existir en un plazo muy corto. Durante ese tiempo me replanteé mi vida, las cosas que quería hacer, las que realmente importaban y muchas que hasta entonces me parecían enormes y de golpe dejaron de serlo. A veces pienso que fue una especie de doctorado forzado en empatía, porque después de vivir algo así entendés de otra manera a alguien que está atravesando una enfermedad grave, una pérdida o una situación límite.',
+      'Lo noto especialmente cuando hablo con personas que están pasando por un cáncer, una quimioterapia, estudios importantes o la muerte de alguien cercano. Muchas veces alrededor de esas personas todo el mundo empieza a caminar sobre cáscaras de huevo. Aparecen frases como “ya va a pasar”, “tené paciencia”, “hay que tener esperanza” o preguntas permanentes sobre cómo están. Entiendo perfectamente de dónde vienen, pero también sé por experiencia propia que cuando uno está adentro de una situación así probablemente ya pensó todo eso cien veces.',
+      'Por eso yo tiendo a comunicarme de otra manera. Soy más directo y trato de no tratarlos entre algodones. Si alguien está atravesando un tratamiento puedo preguntarle directamente cuándo tiene el próximo estudio, cómo dieron los anteriores o cómo está llevando ese tiempo, y después hablar de cualquier otra cosa. Puedo recomendarle una serie, ofrecerme a acompañarlo si necesita algo o simplemente decirle que estoy disponible. Si alguien perdió a una persona querida, muchas veces prefiero decir “estoy pensando en vos, te mando un abrazo enorme, te quiero mucho, si querés hablar, estoy”, y no obligarlo a contestar cómo está cuando probablemente ni siquiera tenga ganas de explicarlo.',
+      'Creo que lo que cambió en mí es que aprendí mejor cuándo hablar, cuándo preguntar y cuándo quedarse callado. También aprendí que empatizar no siempre significa suavizar todo. A veces significa poder ir más directo al hueso, sin dramatizar, sin minimizar y sin decir cosas que suenan bien pero que no ayudan. Haber estado de ese lado me dio un código que antes no tenía y cambió mucho mi manera de acompañar a otras personas.'
+    ]},
+    interrupt:{tag:'Aspecto a mejorar',title:'Impaciencia para escuchar cuando siento que ya entendí',paras:[
+      'Uno de los aspectos que más claramente reconozco que tengo que mejorar es mi dificultad para seguir escuchando cuando siento que ya entendí lo que la otra persona me quiere decir. Me pasa especialmente cuando alguien tarda mucho en llegar al punto o empieza a explicarme algo que para mí es bastante conocido. Ahí me aparece una ansiedad interna muy fuerte por acelerar la conversación. Muchas veces interrumpo.',
+      'Un ejemplo bastante simple es cuando alguien que no me conoce empieza a explicarme conceptos financieros muy básicos sin preguntarme primero cuánto sé del tema. Si me empiezan a explicar qué es una tasa de interés, cómo funciona un fondo o qué significa que una inversión tenga riesgo alto, medio o bajo, mientras yo ya estoy trabajando con análisis matemáticos de portfolios, me cuesta muchísimo dejar que toda la explicación siga hasta el final. Una parte de mí piensa que estoy ahorrando tiempo, aunque si soy sincero el ahorro probablemente sea insignificante. Otra parte también intenta evitar que la persona haga una explicación larguísima para después descubrir que yo ya conocía el tema y sentirse incómoda.',
+      'No siempre interrumpo de manera frontal. Muchas veces intento hacerlo de una forma más diplomática y me atribuyo el problema a mí. Digo cosas como “pará porque si no me pierdo”, “en resumen, ¿lo que querés decir es…?” o “hacémelo más fácil porque me cuesta retener tanto”. En realidad, muchas veces no me estoy perdiendo. Estoy tratando de lograr que la persona resuma y llegue más rápido al punto. Es una estrategia que me permite acortar la conversación sin decirle directamente “esto ya lo sé” o “estás tardando demasiado”.',
+      'Hay algo medio raro en esto. Mi intención puede ser ahorrar tiempo y hasta cuidar al otro para que no se sienta medio expuesto, pero al final termino sacándole parte del espacio para hablar. El problema no es solamente que interrumpa. También es que muchas veces doy por hecho que ya sé adónde va la explicación antes de que la persona termine.'
+    ]},
+    solve:{tag:'Aspecto a mejorar',title:'Escuchar para entender sin convertir demasiado rápido la conversación en una solución',paras:[
+      'Otro aspecto que reconozco que tengo que seguir trabajando es qué hago después de empezar a escuchar un problema. Siento que hoy cambié bastante respecto de antes. Antes mi reacción era mucho más automática. Alguien me contaba algo y yo empezaba a pensar cómo solucionarlo. Hoy trato primero de escuchar y hacer preguntas para entender mejor.',
+      'La dificultad es que esa intención de comprender también me puede llevar a interrumpir. Uso muchísimo frases como “perdón, no entendí”, “¿qué querés decir cuando decís eso?” o “cuando decís esto, ¿te referís a…?”. A veces la aclaración que estoy pidiendo termina siendo importante, otras veces no era central para lo que la persona quería contarme. El problema es que mientras estoy escuchando todavía no sé cuál de esas dos cosas es. Me da miedo dejar pasar un detalle que después resulte necesario para entender el punto completo. Por eso puedo cortar el relato para cerrar una duda antes de dejar que la persona termine. No es raro que me respondan “pará, dejame terminar y después te explico”.',
+      'También sigo teniendo una tendencia muy fuerte a buscar una solución. A veces, cuando logro frenar ese impulso, intento hacerlo con preguntas para que la propia persona llegue a una conclusión. Otras veces conozco una herramienta, un estudio o una idea que creo que puede servir y se la cuento. Trato de hacerlo sin imponerla. Por ejemplo, “¿pensaste alguna vez en…?”, “¿probaste hacer esto?” o “yo, si estuviera en tu lugar, haría…”. Muchas veces eso ayudó y después me lo agradecieron. Pero también reconozco que estoy haciendo una inferencia. Doy por supuesto que porque tengo una posible solución, la otra persona quiere una solución. Puede ser que en ese momento solamente necesite hablar o sentirse escuchada.',
+      'Por eso no creo que mi problema sea simplemente “dar consejos”. Hay conversaciones en las que mi capacidad para preguntar, analizar y proponer alternativas agrega mucho valor. Lo que necesito mejorar es detectar mejor qué necesita la otra persona en esa conversación antes de decidir qué tipo de ayuda darle.'
+    ]},
+    insist:{tag:'Aspecto a mejorar',title:'Dificultad para soltar una discusión cuando estoy convencido de que algo es incorrecto',paras:[
+      'El tercer aspecto que más claramente reconozco como una debilidad es lo mucho que me cuesta bancarme que alguien sostenga algo que, para mí, está equivocado cuando siento que hay evidencia suficiente para demostrarlo. Me pasa especialmente cuando la otra persona sigue apoyándose en una anécdota o en un caso aislado después de que yo ya intenté mostrarle datos, teoría, experiencia o estudios que apuntan en otra dirección.',
+      'Ahí me cuesta mucho separar dos cosas. Una es pensar que una idea está equivocada. Otra, distinta, es aceptar que la otra persona igual puede decidir sostenerla. Mi tendencia es seguir intentando que lo vea. Puedo explicar de nuevo, buscar otro ejemplo, mostrar consecuencias o subir un poco la intensidad. Internamente siento algo parecido a “te estoy tratando de evitar un problema y no entiendo por qué no lo ves”. Cuanto más importante me parece la consecuencia, más difícil me resulta soltar.',
+      'En temas que no me afectan directamente, si veo que la conversación no avanza suelo terminar con algo como “estemos de acuerdo en que estamos en desacuerdo” y me retiro. Pero me queda frustración. En cambio, cuando la decisión me afecta a mí, al negocio, implica mucho dinero o puede tener consecuencias de salud o seguridad, me pongo bastante más intenso.',
+      'Recuerdo, por ejemplo, estar viajando con amigos en Brasil y que apareciera una discusión sobre por dónde convenía ir. Yo había recibido varias advertencias de que una zona era peligrosa y sentí que el resto no le estaba dando la importancia suficiente. En ese momento directamente tomé el control y decidí que íbamos por otro lado. No me interesaba demasiado si se enojaban, porque sentía que ahí ya no estaba discutiendo una preferencia sino un riesgo concreto.',
+      'Algo parecido me pasa con mis padres frente a decisiones médicas importantes. Si veo que están por tomar una decisión basándose solamente en una opinión, intento que hagan interconsultas y conozcan otras alternativas. Si siento que no están dimensionando una consecuencia seria, puedo insistir mucho más de lo que insistiría con cualquier otro tema. No creo que la solución sea volverme indiferente o dejar de señalar algo que considero riesgoso. De hecho, en situaciones límite esa capacidad de tomar posición y actuar puede ser útil. Lo que necesito mejorar es distinguir mejor cuándo mi insistencia realmente protege o agrega información nueva y cuándo simplemente sigo intentando que el otro termine pensando como yo porque me cuesta aceptar que vea la situación de otra manera.'
+    ]}
   };
-  var chat=document.getElementById('chat');
-  function renderChat(mode){chat.innerHTML='';chats[mode].forEach(function(m,i){var d=document.createElement('div');d.className='bubble '+m.who;d.innerHTML=m.t+(m.badge?'<br><span class="'+(mode==='auto'?'interrupt':'listen')+'">'+m.badge+'</span>':'');chat.appendChild(d);setTimeout(function(){d.classList.add('show')},140*i+80)});}
-  renderChat('auto');
-  document.querySelectorAll('[data-mode]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('[data-mode]').forEach(function(x){x.classList.remove('active')});b.classList.add('active');renderChat(b.dataset.mode);})});
 
-  var labels={all:'Todas',claridad:'Claridad',confianza:'Confianza',velocidad:'Velocidad',contexto:'Información',solucion:'Resolver',intensidad:'Intensidad'};
-  var descriptions={
-    claridad:'Explicar y ordenar aparece como fortaleza en varios vínculos. El riesgo es explicar de más o asumir que el otro necesita todo el contexto.',
-    confianza:'En algunos vínculos aparece apertura y disponibilidad. Escuchar más puede profundizar esa confianza.',
-    velocidad:'Procesar rápido puede hacer que avance antes de que el otro haya terminado.',
-    contexto:'Dar contexto ayuda a entender, pero demasiado contexto puede tapar la conclusión.',
-    solucion:'Resolver agrega valor cuando es pedido. El problema aparece cuando la solución llega antes de saber qué necesita el otro.',
-    intensidad:'Cuando creo que algo es importante o incorrecto, puedo seguir empujando hasta convertir ayuda o convicción en presión.'
-  };
-  var people=[
-    {n:'Micaela',t:['confianza','velocidad','solucion']},{n:'Ceci',t:['claridad','velocidad','intensidad']},{n:'Mi mamá',t:['solucion','intensidad']},
-    {n:'Jesús',t:['claridad','velocidad','intensidad','solucion']},{n:'Salvador',t:['claridad','contexto','solucion']},{n:'Luli',t:['confianza','intensidad']},
-    {n:'Rossi',t:['claridad','confianza','contexto']},{n:'Juan',t:['claridad','intensidad']},{n:'Charlie',t:['confianza','contexto','intensidad']},{n:'Daniel',t:['claridad','velocidad','intensidad']}
+  const traits=[
+    {id:'clarity',kind:'good',type:'Fortaleza',title:'Claridad para explicar y lograr que el otro entienda',summary:'Con clientes me sirve para traducir lo técnico y generar confianza. El riesgo aparece cuando explico de más.'},
+    {id:'adapt',kind:'good',type:'Fortaleza',title:'Adaptarme mejor a la otra persona',summary:'Aprendí que insistir con mi lógica no siempre mejora nada y que a veces comunicar bien es dejar de empujar.'},
+    {id:'health',kind:'good',type:'Fortaleza',title:'Empatía desde haber atravesado una situación límite',summary:'La experiencia de salud cambió cómo acompaño enfermedad, pérdida y situaciones límite.'},
+    {id:'interrupt',kind:'grow',type:'A mejorar',title:'Impaciencia para escuchar cuando siento que ya entendí',summary:'La ansiedad por avanzar hace que interrumpa incluso cuando creo que estoy ayudando a hacer la conversación más eficiente.'},
+    {id:'solve',kind:'grow',type:'A mejorar',title:'Escuchar sin convertir demasiado rápido la conversación en una solución',summary:'Tener una posible solución no significa que la otra persona quiera una solución en ese momento.'},
+    {id:'insist',kind:'grow',type:'A mejorar',title:'Dificultad para soltar una discusión cuando creo que algo está mal',summary:'Cuanto más importante me parece la consecuencia, más difícil me resulta aceptar que el otro vea la situación distinto.'}
   ];
-  var svg=document.getElementById('networkSvg'),ns='http://www.w3.org/2000/svg',cx=380,cy=285,r=220;
-  function S(tag,attrs){var e=document.createElementNS(ns,tag);Object.keys(attrs||{}).forEach(function(k){e.setAttribute(k,attrs[k])});return e}
-  var nodeEls=[],edgeEls=[];
-  people.forEach(function(p,i){
-    var a=-Math.PI/2+i*(Math.PI*2/people.length),x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;
-    var line=S('line',{x1:cx,y1:cy,x2:x,y2:y,'class':'edge'});line.dataset.i=i;svg.appendChild(line);edgeEls.push(line);
-    var g=S('g',{'class':'person-node',transform:'translate('+x+' '+y+')'});g.dataset.i=i;var c=S('circle',{r:42});var t=S('text',{'text-anchor':'middle','dominant-baseline':'middle'});t.textContent=p.n;g.appendChild(c);g.appendChild(t);svg.appendChild(g);nodeEls.push(g);
-  });
-  var core=S('circle',{cx:cx,cy:cy,r:64,'class':'core-node'});svg.appendChild(core);var ct=S('text',{x:cx,y:cy-6,'text-anchor':'middle','class':'core-text'});ct.textContent='ANDRÉS';svg.appendChild(ct);var ct2=S('text',{x:cx,y:cy+16,'text-anchor':'middle','class':'core-text'});ct2.textContent='10 miradas';svg.appendChild(ct2);
 
-  var nf=document.getElementById('networkFilters'),ni=document.getElementById('networkInfo'),vl=document.getElementById('voiceList');
-  Object.keys(labels).forEach(function(k){var b=document.createElement('button');b.className='chip'+(k==='all'?' active':'');b.dataset.k=k;b.textContent=labels[k];nf.appendChild(b)});
-  function filterNetwork(k){
-    var hits=[];
-    people.forEach(function(p,i){var on=k==='all'||p.t.indexOf(k)>=0;nodeEls[i].classList.toggle('hit',k!=='all'&&on);nodeEls[i].classList.toggle('dim',k!=='all'&&!on);edgeEls[i].classList.toggle('hit',k!=='all'&&on);if(on)hits.push(p.n)});
-    document.querySelectorAll('.chip').forEach(function(b){b.classList.toggle('active',b.dataset.k===k)});
-    ni.querySelector('h3').textContent=k==='all'?'Todos los vínculos':labels[k]+' · '+hits.length+'/10';
-    ni.querySelector('p').textContent=k==='all'?'Elegí un patrón para ver dónde aparece y qué significa en el trabajo.':descriptions[k];
-    vl.innerHTML=hits.map(function(n){return '<div class="voice-pill">'+n+'</div>'}).join('');
+  const life=[
+    {k:'Antes',t:'La muerte era una idea abstracta',q:'“Hasta ese momento yo podía pensar la muerte de una manera bastante abstracta.”',c:'Podía pensar que algún día cualquiera puede salir a la calle y no volver. Pero era una posibilidad lejana, no algo con fecha ni peso concreto.'},
+    {k:'Ese mes',t:'Un pronóstico cambió la escala de todo',q:'“Hubo un momento en el que un médico me planteó un pronóstico de tres meses de vida.”',c:'Después mi caso fue revisado por otros médicos en un ateneo y, tras aproximadamente un mes, esa primera evaluación cambió y apareció una posibilidad distinta. Ese mes me dejó una marca muy grande.'},
+    {k:'Lo que cambió',t:'Un “doctorado forzado en empatía”',q:'“Después de vivir algo así entendés de otra manera a alguien que está atravesando una enfermedad grave, una pérdida o una situación límite.”',c:'Durante ese tiempo me replanteé qué cosas importaban y cuáles, de golpe, dejaban de parecer enormes. Desde ahí empecé a entender de otra manera qué necesita alguien que está pasando por algo límite.'},
+    {k:'Hoy',t:'Acompañar sin caminar sobre cáscaras de huevo',q:'“Empatizar no siempre significa suavizar todo.”',c:'Hoy tiendo a ser directo, no tratar a la persona entre algodones, no obligarla a explicar cómo está y estar disponible. A veces significa ir directo al hueso sin dramatizar, minimizar ni decir cosas que suenan bien pero no ayudan.'}
+  ];
+
+  const people=[
+    {id:'mica',n:'Micaela',role:'Personal trainer y profesora de gimnasia · 8 años de vínculo',raw:'Micaela - personal trainer y profesora de gimnasia. Nos conocemos hace ocho años y caminamos juntos casi todas las mañanas. Como cosas buenas aparecen que genero confianza y que se puede hablar conmigo de cualquier cosa. Cuando algo me interesa, pregunto hasta entenderlo. Para mejorar, interrumpo cuando siento que ya entendí y me pongo en modo solución demasiado rápido.',tags:['confianza','velocidad','solución'],group:'personal'},
+    {id:'ceci',n:'Ceci',role:'Mi hermana',raw:'Ceci - mi hermana. Lo bueno es que soy muy presente cuando alguien necesita ayuda y explico bien las cosas. Para mejorar, a veces no dejo terminar porque quiero aclarar algo en el medio y, cuando estoy convencido de algo, puedo insistir demasiado.',tags:['claridad','velocidad','intensidad'],group:'familia'},
+    {id:'mama',n:'Mi mamá',role:'Familia',raw:'Mi mamá. Lo bueno es que trato de ayudar y buscar una salida, y con los años aprendí a escucharla mejor. Para mejorar, a veces intento llevar a la lógica conversaciones que ella está viviendo desde un lugar emocional y, cuando algo me preocupa mucho, puedo insistir para que haga lo que yo considero mejor.',tags:['solución','intensidad'],group:'familia'},
+    {id:'jesus',n:'Jesús',role:'Compañero de trabajo · algo más de autoridad de mi lado',raw:'Jesús - compañero de trabajo donde yo tengo un poco más de autoridad. Lo bueno es que soy claro con lo que necesito, explico el porqué y busco resolver rápido. Para mejorar, a veces voy tan rápido que parece que ya tengo una respuesta antes de escuchar todo y, cuando algo es urgente, puedo hacer sentir bastante presión.',tags:['claridad','velocidad','solución','intensidad'],group:'trabajo'},
+    {id:'salvador',n:'Salvador',role:'Cliente con quien tengo confianza',raw:'Salvador - cliente con quien tengo confianza. Lo bueno es que puedo explicar temas técnicos de una forma entendible para alguien de Compras y resuelvo rápido. Para mejorar, a veces doy más detalle del necesario y podría empezar por la conclusión antes de contar todo el contexto.',tags:['claridad','contexto','solución'],group:'trabajo'},
+    {id:'luli',n:'Luli',role:'Mi hermana',raw:'Luli - mi hermana. Lo bueno es que conmigo se puede hablar de temas personales sin demasiados filtros y pregunto mucho para entender. Para mejorar, a veces me engancho con un detalle que no cambia el punto principal y, si entro en modo discusión, puedo subir demasiado la intensidad.',tags:['confianza','contexto','intensidad'],group:'familia'},
+    {id:'rossi',n:'Rossi',role:'Secretaria de la oficina',raw:'Rossi - secretaria de la oficina. Lo bueno es que soy accesible y explico por qué pido algo, no solamente qué hay que hacer. También genero confianza para hablar de cosas que no son solamente de trabajo. Para mejorar, puedo dar demasiado contexto antes de llegar a lo principal y cambiar rápido de un tema a otro.',tags:['claridad','confianza','contexto','velocidad'],group:'trabajo'},
+    {id:'juan',n:'Juan',role:'Amigo y abogado',raw:'Juan - amigo y abogado. Lo bueno es que ordeno bien información compleja y detecto inconsistencias rápido. Para mejorar, puedo seguir analizando opciones cuando la decisión ya está bastante clara y discutir un detalle como si fuera decisivo aunque no cambie el resultado.',tags:['claridad','contexto','intensidad'],group:'amistad'},
+    {id:'charlie',n:'Charlie',role:'Mi mejor amigo · vive en España',raw:'Charlie - mi mejor amigo, que vive en España. Lo bueno es que soy frontal y no hay que adivinar qué pienso. Cuando algo importa de verdad, estoy. Para mejorar, cuando estoy convencido de algo me cuesta mucho soltar la discusión y puedo hablar demasiado porque muchas veces pienso mientras hablo.',tags:['confianza','intensidad','contexto'],group:'amistad'},
+    {id:'daniel',n:'Daniel',role:'Proveedor · muchos años de trabajo',raw:'Daniel - proveedor con quien trabajo hace muchos años. Lo bueno es que soy directo, sé explicar qué necesito y detecto rápido dónde está el problema. Para mejorar, puedo ser insistente con el seguimiento y tengo poca paciencia cuando una respuesta tarda o no va al punto.',tags:['claridad','velocidad','intensidad'],group:'trabajo'}
+  ];
+
+  const deepdives=[
+    {n:'Micaela',text:'En el caso de Micaela, el punto que más me interesa es la diferencia entre escuchar y resolver. La situación que aparece muchas veces es que alguien empieza a contarme algo y, mientras todavía lo está procesando, yo ya estoy pensando qué herramienta puede usar, qué haría yo o cómo podría resolverlo. La intención es ayudar, pero el efecto puede ser que la otra persona todavía no terminó de ordenar lo que le pasa y yo ya avancé a la etapa siguiente.'},
+    {n:'Ceci',text:'Con Ceci aparece otro matiz. Cuando estoy convencido de algo, no siempre me alcanza con haber expresado mi opinión y haber entendido la suya. Puedo seguir buscando argumentos para que la otra persona vea por qué para mí una conclusión es la correcta. El riesgo ahí es que la conversación deje de ser para entendernos y se transforme en una discusión para convencer.'},
+    {n:'Mi mamá',text:'Con mi mamá aparece algo que para mí es importante porque muestra un cambio. Antes me enganchaba mucho más cuando ella reaccionaba desde un lugar emocional y yo seguía intentando explicar por qué racionalmente algo no tenía sentido. Hoy me doy cuenta antes y muchas veces freno. Sin embargo, cuando siento que hay algo importante en juego, especialmente salud o una decisión que puede tener consecuencias, todavía puedo volverme muy insistente porque siento que estoy tratando de cuidarla.'}
+  ];
+
+  const courses=[
+    {id:'listen',name:'Escucha activa',source:'Clase 1',principle:'Tener un alto grado de implicación en lo que estamos escuchando no alcanza: también implica “no invadir el espacio del emisor”, por ejemplo no prejuzgar ni dejarlo sin terminar.',connect:'Ahí aparece exactamente mi tensión: 4/5 en participar como oyente, pero 1/5 en escuchar sin interrumpir.'},
+    {id:'ask',name:'Preguntar para comprender',source:'Clase 1',principle:'ATENCIÓN + REFLEXIÓN, curiosidad genuina, preguntas antes de respuestas y mentalidad abierta.',connect:'Mi problema no es no preguntar. Es que puedo preguntar demasiado pronto. La práctica es dejar que algunas dudas esperen.'},
+    {id:'exercise',name:'3 minutos · 2 preguntas · resumen',source:'Ejercicio de clase',principle:'Tres minutos escucha uno; después el otro hace sólo dos preguntas; luego se resume lo escuchado antes de agregar una interpretación.',connect:'Me llamó la atención porque es casi exactamente lo contrario de lo que me sale hacer naturalmente.'},
+    {id:'desc',name:'Interpretación vs. descripción',source:'Clase 2',principle:'Separar lo observado de lo que inferimos evita tratar una interpretación como si fuera un hecho.',connect:'Yo puedo inferir que si tengo una posible solución, la otra persona quiere una solución. Esa inferencia puede ser falsa.'},
+    {id:'closure',name:'Cierre negativo',source:'Clase 2',principle:'Cuando la información del emisor está incompleta, el receptor puede rellenarla según sus valores, creencias y percepciones.',connect:'Escuchar hasta el final reduce mi tendencia a completar demasiado pronto adónde va la conversación.'},
+    {id:'premature',name:'Consejo prematuro',source:'Artículo “Sus mensajes…”',principle:'El material identifica como obstáculo ofrecer consejo o solución a un problema cuando nadie lo pidió y plantea el dilema de saber cuándo hablar y cuándo callar.',connect:'Mi inquietud de cambio toca ese punto casi de manera literal: resolver puede ser una fortaleza, pero no si llega antes de saber qué necesita el otro.'}
+  ];
+
+  const domains={
+    familia:{ey:'Familia',title:'Conocer mejor quiénes son mis padres',text:'En mi familia me gustaría tener conversaciones más profundas y conocer mejor quiénes son mis padres, no solamente cómo reaccionan frente a un problema o qué opinan de determinado tema. Muchas veces siento que conozco sus respuestas pero no necesariamente toda la historia, las razones o las experiencias que hay detrás. Si interrumpo menos y dejo más espacio, creo que puedo conocer aspectos de ellos que hoy no aparecen porque la conversación se va demasiado rápido hacia una discusión, una explicación o una solución.'},
+    amigos:{ey:'Amigos',title:'Llegar a lo profundo sin forzarlo',text:'Con mis amigos me gustaría poder llegar más seguido a conversaciones profundas. Muchas veces las conversaciones superficiales o sobre temas que siento triviales me aburren, y mi reacción natural es llevarlas rápido hacia otro lugar. Y al final capaz escuchar más es justamente lo que me ayuda a llegar a esas conversaciones más profundas que busco. En lugar de forzar el tema interesante, podría dejar que la otra persona desarrolle lo que está pensando hasta encontrar qué hay realmente detrás.'},
+    trabajo:{ey:'Trabajo',title:'Escuchar primero aunque crea que tengo razón',text:'En el trabajo el objetivo es distinto. Cuando estoy convencido de que algo se tiene que hacer de determinada manera, mi impulso es argumentar y tratar de demostrar por qué. A veces no me doy cuenta de que, por la autoridad que tengo, la otra persona puede preferir darme la razón y recién decir qué piensa cuando se lo pregunto. Quiero aprender a escuchar primero aunque crea que tengo razón. No necesariamente para cambiar de opinión, sino porque si la otra persona siente que fue escuchada, puede estar mucho más abierta a escuchar después mi mirada. Además, puedo descubrir información que no tenía y que cambie algo de mi propio análisis.'}
+  };
+
+  const finalReflection=[
+    'Lo que más me sorprendió de este proceso fue darme cuenta de que durante mucho tiempo yo pensaba que escuchar bien era prestar mucha atención, meterme en lo que me estaban contando y demostrarle al otro que estaba siguiendo lo que decía. Por eso hacía preguntas, pedía aclaraciones y trataba de entender cada detalle. El problema es que muchas veces, justamente por querer mostrar que estaba escuchando, terminaba interrumpiendo.',
+    'Yo no lo vivía como falta de escucha. Al contrario. Sentía que estaba tan metido en la conversación que necesitaba preguntar en el momento para no perder información. Recién al mirar el patrón completo entendí que desde el otro lado puede ser muy distinto. La otra persona puede necesitar terminar de contar lo que piensa aunque todavía haya cosas que para mí no estén del todo claras. Muchas de esas dudas que a mí me aparece la urgencia de resolver probablemente se contesten solas si espero un poco más.',
+    'Hay algo muy concreto que me quedó. Escuchar no es solamente entender. También es darle al otro el tiempo para terminar de decir lo que necesita decir. Haber escuchado tantas veces “dejame terminar” y haberlo tomado simplemente como una característica mía hizo que durante mucho tiempo no viera el impacto que podía tener. Ahora lo veo como una conducta automática que puedo practicar de otra manera.',
+    'Los ejercicios de la materia también me ayudaron a ponerle nombre a cosas que yo veía separadas. El MBTI no me explica ni define, pero me mostró preferencias bastante marcadas que me sirvieron para darme cuenta de algunas cosas mías que antes no veía tan claro. El Test de Escucha Activa fue todavía más concreto. Podía tener empatía y participar mucho como oyente y, al mismo tiempo, tener una dificultad muy marcada para no interrumpir. Para mí esa diferencia fue importante porque dejó de ser “soy bueno o malo escuchando” y pasó a ser algo mucho más específico que puedo trabajar.',
+    'También llegué a este trabajo después de experiencias personales que cambiaron bastante mi forma de acompañar a otras personas. Eso me ayudó a desarrollar empatía, pero este proceso me mostró que tener empatía no alcanza si no le doy al otro el espacio para usar su propia voz.',
+    'Creo que eso es lo principal que me llevo. No necesito dejar de ser directo, curioso, resolutivo ni de hacer preguntas. Necesito aprender a elegir mejor el momento. Escuchar hasta el final no significa quedarme pintado. En mi caso, capaz es justamente la parte que más me cuesta hacer bien. Si logro hacer esa pausa antes de meterme, creo que no solamente voy a escuchar mejor. También voy a conocer mejor a las personas y voy a tener conversaciones más profundas y más útiles.'
+  ];
+
+  // Scroll progress + reveal
+  const prog=document.getElementById('readingProgress');
+  const updateProgress=()=>{const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h?scrollY/h*100:0)+'%'};addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');e.target.querySelectorAll('[data-w]').forEach(el=>el.style.width=el.dataset.w+'%')}}),{threshold:.14});
+  document.querySelectorAll('.reveal,.trait,.test-card,.deep').forEach(el=>observer.observe(el));
+
+  // Hero parallax
+  const heroV=document.getElementById('heroVisual');
+  if(heroV && matchMedia('(pointer:fine)').matches){heroV.addEventListener('pointermove',e=>{const r=heroV.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;heroV.querySelector('.glass-stack').style.transform=`rotateY(${x*8}deg) rotateX(${-y*6}deg)`});heroV.addEventListener('pointerleave',()=>heroV.querySelector('.glass-stack').style.transform='')}
+
+  // Drawer
+  const drawer=document.getElementById('drawer'),drawerTitle=document.getElementById('drawerTitle'),drawerTag=document.getElementById('drawerTag'),drawerBody=document.getElementById('drawerBody');
+  function openEssay(id){const e=essays[id];drawerTitle.textContent=e.title;drawerTag.textContent=e.tag;drawerBody.innerHTML=e.paras.map(p=>`<p>${p}</p>`).join('')+`<p><a href="${PDF}" download style="color:var(--blue);font-family:var(--sans);font-weight:850">Descargar PDF completo ↓</a></p>`;drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+  function closeDrawer(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+  drawer.addEventListener('click',e=>{if(e.target.dataset.close)closeDrawer()});addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});
+  document.addEventListener('click',e=>{const b=e.target.closest('[data-essay]');if(b)openEssay(b.dataset.essay)});
+
+  // Trait cards
+  const traitGrid=document.getElementById('traitGrid');
+  traits.forEach(t=>{const a=document.createElement('article');a.className=`card trait ${t.kind} reveal`;a.innerHTML=`<div class="type">${t.type}</div><h3>${t.title}</h3><p>${t.summary}</p><button data-essay="${t.id}">Abrir desarrollo original</button>`;traitGrid.appendChild(a);observer.observe(a)});
+
+  // Life timeline
+  const lifeRail=document.getElementById('lifeRail');
+  life.forEach((s,i)=>{const b=document.createElement('div');b.className='life-step'+(i===0?' active':'');b.innerHTML=`<div class="life-dot">${i+1}</div><div><b>${s.k}</b><small>${s.t}</small></div>`;b.addEventListener('click',()=>showLife(i));lifeRail.appendChild(b)});
+  function showLife(i){document.querySelectorAll('.life-step').forEach((x,j)=>x.classList.toggle('active',i===j));const s=life[i];document.getElementById('lifeEyebrow').textContent=s.k;document.getElementById('lifeTitle').textContent=s.t;document.getElementById('lifeQuote').textContent=s.q;document.getElementById('lifeCopy').textContent=s.c}showLife(0);
+
+  // Knob simulator
+  const knob=document.getElementById('knob'),needle=document.getElementById('needle'),knobNumber=document.getElementById('knobNumber'),knobLabel=document.getElementById('knobLabel'),knobState=document.getElementById('knobState');
+  let knobVal=72,ctx='personal',dragStart=null;
+  const targets={personal:72,trabajo:62,riesgo:40};
+  const contextMeta={personal:{title:'Personal',explain:'En una conversación personal, esperar un poco más puede dejar aparecer información que yo no esperaba.'},trabajo:{title:'Trabajo',explain:'En trabajo necesito equilibrio: escuchar suficiente para captar información nueva sin perder claridad ni velocidad.'},riesgo:{title:'Riesgo / urgencia',explain:'En una situación de riesgo real, meterme antes puede ser necesario. El objetivo no es aplicar la pausa como una regla rígida.'}};
+  const labels=v=>v<20?'me meto enseguida':v<42?'aclaro mientras habla':v<62?'dejo terminar':v<82?'resumo y pregunto':'espero mucho';
+  const stateText=v=>v<20?'<strong>Muy temprano.</strong> Gano velocidad, pero aumenta el riesgo de interrumpir, asumir o resolver algo que nadie pidió.':v<42?'<strong>Todavía temprano.</strong> Pregunto para entender, pero puedo cortar el hilo antes de saber si esa duda era central.':v<62?'<strong>Zona intermedia.</strong> Dejo terminar más, aunque todavía puedo entrar rápido según el contexto.':v<82?'<strong>Escucho, resumo y recién después entro.</strong> Es la zona que más se parece a la práctica que propongo para conversaciones no urgentes.':'<strong>Demasiado tarde puede ser otro problema.</strong> Escuchar no significa desaparecer de la conversación, especialmente si hace falta actuar.';
+  function simConversation(v){let rows;if(v<28){rows=[['other','Estoy tratando de explicarte qué me pasa con esto…'],['me','Pará, entonces lo que tenés que hacer es…','interrumpo / resuelvo'],['other','Sí, pero dejame terminar porque no iba por ahí.']]}else if(v<52){rows=[['other','Estoy tratando de explicarte qué me pasa con esto…'],['me','Perdón, cuando decís eso, ¿te referís a…?','aclaro en el medio'],['other','Pará, dejame terminar y después te explico.']]}else if(v<82){rows=[['other','Estoy tratando de explicarte qué me pasa con esto…'],['me','Claro. Te sigo.','dejo espacio'],['other','En realidad lo que más me preocupa no es la decisión en sí, sino otra cosa que me está pasando.'],['me','Si entendí bien, el problema no es sólo elegir. ¿Querés contarme un poco más?','resumo y pregunto']]}else{rows=[['other','Estoy tratando de explicarte qué me pasa con esto…'],['me','…','mucho silencio'],['other','¿Me estás siguiendo?'],['me','Sí. Me quedé esperando demasiado para mostrarte que estaba acá.','participar también importa']]}
+    const chat=document.getElementById('simChat');chat.innerHTML='';rows.forEach((r,i)=>{const d=document.createElement('div');d.className='bubble '+r[0];d.innerHTML=r[1]+(r[2]?`<br><span class="badge">${r[2]}</span>`:'');chat.appendChild(d);setTimeout(()=>d.classList.add('show'),70+i*100)})
   }
-  nf.addEventListener('click',function(e){if(e.target.matches('.chip'))filterNetwork(e.target.dataset.k)});filterNetwork('all');
+  function updateKnob(v){knobVal=Math.max(0,Math.min(100,Math.round(v)));const angle=-130+(knobVal/100)*260;needle.style.setProperty('--angle',angle+'deg');knobNumber.textContent=knobVal;knobLabel.textContent=labels(knobVal);knob.setAttribute('aria-valuenow',knobVal);knobState.innerHTML=stateText(knobVal);const target=targets[ctx];const space=knobVal,speed=100-knobVal,fit=Math.max(0,Math.round(100-Math.abs(knobVal-target)*2.2));document.getElementById('spaceVal').textContent=space;document.getElementById('speedVal').textContent=speed;document.getElementById('fitVal').textContent=fit;document.getElementById('spaceBar').style.width=space+'%';document.getElementById('speedBar').style.width=speed+'%';document.getElementById('fitBar').style.width=fit+'%';document.getElementById('simTitle').textContent=contextMeta[ctx].title+' · '+labels(knobVal);document.getElementById('simExplain').textContent=contextMeta[ctx].explain;simConversation(knobVal)}
+  knob.addEventListener('pointerdown',e=>{knob.setPointerCapture(e.pointerId);dragStart={x:e.clientX,v:knobVal}});knob.addEventListener('pointermove',e=>{if(!dragStart)return;updateKnob(dragStart.v+(e.clientX-dragStart.x)*.45)});knob.addEventListener('pointerup',()=>dragStart=null);knob.addEventListener('pointercancel',()=>dragStart=null);knob.addEventListener('keydown',e=>{if(['ArrowRight','ArrowUp'].includes(e.key)){e.preventDefault();updateKnob(knobVal+3)}if(['ArrowLeft','ArrowDown'].includes(e.key)){e.preventDefault();updateKnob(knobVal-3)}});
+  document.getElementById('contextTabs').addEventListener('click',e=>{if(!e.target.dataset.context)return;ctx=e.target.dataset.context;document.querySelectorAll('#contextTabs button').forEach(b=>b.classList.toggle('active',b.dataset.context===ctx));updateKnob(knobVal)});updateKnob(72);
 
-  var scenes=[
-    {title:'Preguntar para entender',context:'Aparece una duda mientras la otra persona todavía está hablando.',auto:'Interrumpir para cerrar la duda porque temo perder un detalle importante.',tr:'Dejar la duda pendiente cuando puedo seguir entendiendo y ver si se resuelve sola al final.',q:'¿Esta aclaración hace falta ahora o puede esperar a que termine de contarme?'},
-    {title:'Explicar con el contexto justo',context:'Con clientes, explicar bien genera confianza. Pero también puedo explicar de más.',auto:'Dar todo el contexto para asegurarme de que el otro entienda.',tr:'Empezar por qué necesita decidir la otra persona y ajustar la profundidad a eso.',q:'¿Qué necesitás saber primero para poder decidir?'},
-    {title:'Cuidar y saber cuándo frenar',context:'Cuando siento que hay una consecuencia importante puedo insistir mucho porque siento que estoy cuidando.',auto:'Seguir argumentando hasta que el otro vea el riesgo como yo.',tr:'Distinguir cuándo agrego información nueva y cuándo solamente sigo intentando convencer.',q:'¿Estoy agregando información nueva o sigo intentando que piense como yo?'}
-  ];
-  var tabs=document.getElementById('sceneTabs'),main=document.getElementById('sceneMain');
-  function showScene(i){document.querySelectorAll('.scene-tab').forEach(function(x,j){x.classList.toggle('active',i===j)});var s=scenes[i];main.innerHTML='<h3>'+s.title+'</h3><p class="scene-context">'+s.context+'</p><div class="scene-compare"><div class="scene-box auto"><b>Lo que me sale</b>'+s.auto+'</div><div class="scene-box try"><b>Lo que quiero probar</b>'+s.tr+'</div></div><div class="promptline">'+s.q+'</div>'}
-  scenes.forEach(function(s,i){var b=document.createElement('button');b.className='scene-tab'+(i===0?' active':'');b.textContent=s.title;b.addEventListener('click',function(){showScene(i)});tabs.appendChild(b)});showScene(0);
+  // Network
+  const labelMap={all:'Todas',claridad:'Claridad',confianza:'Confianza',velocidad:'Velocidad',contexto:'Contexto',solución:'Resolver',intensidad:'Intensidad'};
+  const svg=document.getElementById('networkSvg'),NS='http://www.w3.org/2000/svg',cx=380,cy=300,r=225,nodeEls=[],edgeEls=[];
+  function S(tag,attrs){const el=document.createElementNS(NS,tag);Object.entries(attrs||{}).forEach(([k,v])=>el.setAttribute(k,v));return el}
+  people.forEach((p,i)=>{const a=-Math.PI/2+i*Math.PI*2/people.length,x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;const line=S('line',{x1:cx,y1:cy,x2:x,y2:y,class:'edge'});line.dataset.i=i;svg.appendChild(line);edgeEls.push(line);const g=S('g',{class:'person',transform:`translate(${x} ${y})`,tabindex:'0',role:'button','aria-label':'Abrir '+p.n});g.dataset.i=i;const c=S('circle',{r:43});const t=S('text',{'text-anchor':'middle','dominant-baseline':'middle'});t.textContent=p.n;g.appendChild(c);g.appendChild(t);g.addEventListener('click',()=>showPerson(i));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showPerson(i)}});svg.appendChild(g);nodeEls.push(g)});
+  svg.appendChild(S('circle',{cx,cy,r:65,class:'corecircle'}));let tx=S('text',{x:cx,y:cy-6,'text-anchor':'middle',class:'coretext'});tx.textContent='ANDRÉS';svg.appendChild(tx);tx=S('text',{x:cx,y:cy+17,'text-anchor':'middle',class:'coretext'});tx.textContent='10 miradas';svg.appendChild(tx);
+  const vf=document.getElementById('voiceFilters');Object.entries(labelMap).forEach(([k,v])=>{const b=document.createElement('button');b.dataset.k=k;b.textContent=v;b.className=k==='all'?'active':'';vf.appendChild(b)});
+  function applyFilter(k){document.querySelectorAll('#voiceFilters button').forEach(b=>b.classList.toggle('active',b.dataset.k===k));people.forEach((p,i)=>{const on=k==='all'||p.tags.includes(k);nodeEls[i].classList.toggle('hit',k!=='all'&&on);nodeEls[i].classList.toggle('dim',k!=='all'&&!on);edgeEls[i].classList.toggle('hit',k!=='all'&&on)})}
+  vf.addEventListener('click',e=>{if(e.target.dataset.k)applyFilter(e.target.dataset.k)});
+  function showPerson(i){const p=people[i],card=document.getElementById('voiceCard');card.innerHTML=`<div class="role">${p.role}</div><h3>${p.n}</h3><div class="voice-raw">${p.raw}</div><div class="voice-tags">${p.tags.map(t=>`<span>${labelMap[t]||t}</span>`).join('')}</div><div class="voice-note">Texto del trabajo. Está presentado como una mirada construida a partir del vínculo y situaciones concretas, no como una cita textual grabada.</div>`}
+  const av=document.getElementById('allVoices');people.forEach(p=>{const d=document.createElement('div');d.className='allvoice';d.innerHTML=`<b>${p.n}</b><p>${p.raw}</p>`;av.appendChild(d)});
+  const dd=document.getElementById('deepdives');deepdives.forEach(d=>{const a=document.createElement('article');a.className='deep reveal';a.innerHTML=`<div class="eyebrow">Profundización</div><h3>${d.n}</h3><div class="deepquote">${d.text}</div>`;dd.appendChild(a);observer.observe(a)});
+  const network=document.getElementById('network'),networkInner=document.getElementById('networkInner');if(matchMedia('(pointer:fine)').matches){network.addEventListener('pointermove',e=>{const q=network.getBoundingClientRect(),x=(e.clientX-q.left)/q.width-.5,y=(e.clientY-q.top)/q.height-.5;networkInner.style.transform=`rotateY(${x*5}deg) rotateX(${-y*4}deg)`});network.addEventListener('pointerleave',()=>networkInner.style.transform='')}
 
-  var rasa=[
-    {l:'R',n:'Receive · Recibir',t:'Escuchar hasta que el otro termine. Si una duda puede esperar, no cortar el relato para resolverla.',e:'La otra persona habla. Yo no preparo todavía la respuesta: sigo el hilo.'},
-    {l:'A',n:'Appreciate · Apreciar',t:'Mostrar que sigo presente sin tomar el control de la conversación.',e:'“Claro.” · “Sí, te sigo.” · un gesto de atención.'},
+  // Common patterns
+  const patternData=[['Velocidad',80],['Cantidad de información',64],['Tendencia a resolver',72],['Intensidad',82]];const pl=document.getElementById('patternList');patternData.forEach(([n,v])=>{const d=document.createElement('div');d.className='pattern-row';d.innerHTML=`<b>${n}</b><div class="patternbar"><i data-w="${v}"></i></div>`;pl.appendChild(d)});
+
+  // Course tools
+  const cm=document.getElementById('courseMenu'),cmain=document.getElementById('courseMain');
+  function showCourse(i){document.querySelectorAll('#courseMenu button').forEach((b,j)=>b.classList.toggle('active',i===j));const c=courses[i];cmain.innerHTML=`<span class="course-source">${c.source}</span><h3>${c.name}</h3><div class="course-principle">${c.principle}</div><div class="course-connect"><b>Cómo entra en mi trabajo</b><br>${c.connect}</div>`}
+  courses.forEach((c,i)=>{const b=document.createElement('button');b.className=i===0?'active':'';b.textContent=c.name;b.addEventListener('click',()=>showCourse(i));cm.appendChild(b)});showCourse(0);
+
+  // Domains
+  const dt=document.getElementById('domainTabs');Object.entries(domains).forEach(([k,v],i)=>{const b=document.createElement('button');b.dataset.k=k;b.textContent=v.ey;b.className=i===0?'active':'';b.addEventListener('click',()=>showDomain(k));dt.appendChild(b)});
+  function showDomain(k){document.querySelectorAll('#domainTabs button').forEach(b=>b.classList.toggle('active',b.dataset.k===k));const d=domains[k];document.getElementById('domainEyebrow').textContent=d.ey;document.getElementById('domainTitle').textContent=d.title;document.getElementById('domainText').textContent=d.text}showDomain('familia');
+
+  // RASA
+  const rasa=[
+    {l:'R',n:'Receive · Recibir',t:'Prestar atención. En mi caso: escuchar hasta que el otro termine y no cortar una duda que puede esperar.',e:'La otra persona habla. Yo sigo el hilo sin preparar todavía la respuesta.'},
+    {l:'A',n:'Appreciate · Apreciar',t:'Mostrar que sigo escuchando sin tomar el control de la conversación.',e:'“Claro.” · “Sí, te sigo.” · un gesto que muestra presencia sin acelerar.'},
     {l:'S',n:'Summarize · Resumir',t:'Devolver lo que entendí antes de aportar mi interpretación.',e:'“Si entendí bien, lo que más te preocupa no es X sino Y.”'},
-    {l:'A',n:'Ask · Preguntar',t:'Preguntar después de escuchar y resumir, no como reflejo automático.',e:'“¿Querés que pensemos opciones o necesitabas contármelo?”'}
+    {l:'A',n:'Ask · Preguntar',t:'Preguntar después de escuchar y resumir. No porque toda duda tenga que resolverse en el momento.',e:'“¿Querés que pensemos opciones o necesitabas contármelo?”'}
   ];
-  var rb=document.getElementById('rasaButtons');
-  function showRasa(i){document.querySelectorAll('.rasa-step').forEach(function(x,j){x.classList.toggle('active',i===j)});document.getElementById('rasaTitle').textContent=rasa[i].n;document.getElementById('rasaText').textContent=rasa[i].t;document.getElementById('rasaExample').textContent=rasa[i].e}
-  rasa.forEach(function(s,i){var b=document.createElement('button');b.className='rasa-step'+(i===0?' active':'');b.innerHTML='<b>'+s.l+'</b><span>'+s.n.split(' · ')[0]+'</span>';b.addEventListener('click',function(){showRasa(i)});rb.appendChild(b)});showRasa(0);
+  const rb=document.getElementById('rasaButtons');function showRasa(i){document.querySelectorAll('.rasa-step').forEach((b,j)=>b.classList.toggle('active',i===j));document.getElementById('rasaTitle').textContent=rasa[i].n;document.getElementById('rasaText').textContent=rasa[i].t;document.getElementById('rasaExample').textContent=rasa[i].e}
+  rasa.forEach((x,i)=>{const b=document.createElement('button');b.className='rasa-step'+(i===0?' active':'');b.innerHTML=`<b>${x.l}</b><span>${x.n.split(' · ')[0]}</span>`;b.addEventListener('click',()=>showRasa(i));rb.appendChild(b)});showRasa(0);
 
-  var items=['No interrumpir para corregir, completar o resolver.','Dejar pendiente una duda que pueda esperar.','Resumir primero qué entendí.','Hacer una pregunta sólo si realmente hace falta.','Opinar o proponer una solución después.'];
-  var box=document.getElementById('checks'),donut=document.getElementById('donut'),count=document.getElementById('doneCount');
-  function upd(){var n=document.querySelectorAll('.check input:checked').length;count.textContent=n+'/5';donut.style.setProperty('--p',(n/5*360)+'deg')}
-  items.forEach(function(t){var l=document.createElement('label');l.className='check';l.innerHTML='<input type="checkbox"><span>'+t+'</span>';l.querySelector('input').addEventListener('change',upd);box.appendChild(l)});upd();
+  // Practice
+  const practice=['No interrumpir para corregir, completar o resolver.','Dejar pendiente una duda que pueda esperar.','Resumir primero qué entendí.','Hacer una pregunta sólo si realmente hace falta.','Opinar o proponer una solución después.'];
+  const checks=document.getElementById('checks'),ring=document.getElementById('progressRing'),count=document.getElementById('progressCount');function updateChecks(){const n=document.querySelectorAll('.check input:checked').length;count.textContent=n+'/5';ring.style.setProperty('--p',(n/5*360)+'deg')}
+  practice.forEach(t=>{const l=document.createElement('label');l.className='check';l.innerHTML=`<input type="checkbox"><span>${t}</span>`;l.querySelector('input').addEventListener('change',updateChecks);checks.appendChild(l)});updateChecks();
+
+  // Reflection
+  document.getElementById('reflectionFull').innerHTML=finalReflection.map(p=>`<p>${p}</p>`).join('');
 })();
 </script>
 </body>
