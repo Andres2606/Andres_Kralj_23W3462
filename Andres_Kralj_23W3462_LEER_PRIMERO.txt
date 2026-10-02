@@ -1,0 +1,12 @@
+ANTES DE RESPONDER
+Andrés Kralj · Herramientas de Comunicación
+
+1. Extraer el ZIP completo en una carpeta.
+2. Abrir ABRIR_TRABAJO.html con Chrome, Edge o Firefox.
+
+La experiencia funciona sin internet, sin cuenta y sin instalar nada.
+Los ejemplos y sus preguntas se abren en una ventana. El botón Cerrar permite continuar en el mismo lugar.
+
+Trabajo_completo.pdf contiene todo el desarrollo para leer, imprimir o evaluar sin utilizar la experiencia interactiva.
+
+Si la computadora no abre el HTML en un navegador, clic derecho sobre ABRIR_TRABAJO.html, Abrir con, Google Chrome.
